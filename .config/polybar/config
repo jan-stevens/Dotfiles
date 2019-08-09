@@ -5,6 +5,7 @@
 ;-------------------------------------------------
 
 
+
 [colors]
 ;background = ${xrdb:color0:#222}
 ;background = #212E36
@@ -32,7 +33,6 @@ offset-x = 0%
 ;offset-y = 10%
 radius = 0.0
 fixed-center = true
-
 background = ${colors.background}
 foreground = ${colors.foreground}
 
@@ -57,14 +57,13 @@ font-5 = Font Awesome 5 Brands:pixelsize=8;1
 font-2 = sm4tik:pixelsize=10;1
 
 
-modules-left = i3 
+modules-left = i3 cpu filesystem  
 modules-center =  date
-modules-right =    cpu memory wireless-network volume battery powermenu
+modules-right = spotify xbacklight volume wireless-network battery powermenu
 
 tray-position = hidden
 tray-padding = 11
 tray-transparent = true
-tray-offset-y = 22
 tray-offset-x = -0
 tray-maxsize = 18
 tray-detached = true
@@ -81,30 +80,39 @@ wm-restack = i3
 ;scroll-up = i3wm-wsnext
 ;scroll-down = i3wm-wsprev
 
-
-[module/weather]
+[module/spotify]
+interval = 0.5
 type = custom/script
-interval = 60
-
-;format-background = ${colors.background-alt}
-format = <label>
-format-prefix = "    "
-format-suffix = "   "
+exec = echo '  ' `playerctl metadata title` - `playerctl metadata artist` '    '
 format-prefix-foreground = ${colors.foreground-alt}
-exec = python ~/.config/polybar/weather.py
 
-[module/music]
-type = custom/script
-interval = 1
-bar-width = 50%
+[module/xbacklight]
+type = internal/xbacklight
 
-;format-background = ${colors.background-alt}
-;format-foreground = ${colors.foreground-alt}
+; format = <label>  <bar>
+format = <label>
+format-prefix = "|    "
+label = %percentage%%
 
-label = " %output% "
+format-background = ${colors.background-alt}
+format-foreground = ${colors.foreground-alt}
 
-exec = ~/.config/polybar/mpris.sh
+[module/filesystem]
+type = internal/fs
+interval = 25
 
+mount-0 = /
+
+format-mounted-prefix = "      "
+label-mounted = %percentage_used%%  
+label-mounted-foreground = ${colors.foreground-alt}
+;label-mounted-background = ${colors.background-unf}
+format-mounted-prefix-foreground = ${colors.foreground-alt}
+;format-mounted-prefix-background = ${colors.background-unf}
+label-mounted-
+format-unmounted-prefix = 
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
 
 [module/i3]
 
@@ -116,7 +124,7 @@ type = internal/i3
 ;label-unfocused-padding = 3
 ;
 ;label-focused-background = ${colors.background-alt}
-label-unfocused-background = ${colors.background-unf}
+label-unfocused-background = ${colors.background-alt}
 ;
 ;label-mode-padding = 0
 ;label-mode-background = ${colors.background-unf}
@@ -140,7 +148,7 @@ label-mode-background = #e60053
 ; Default: %icon%  %name%
 label-focused = %name%
 label-focused-foreground = #ffffff
-label-focused-background = ${colors.background-alt}
+label-focused-background = ${colors.background-mod1}
 label-focused-underline = #fba922
 label-focused-padding = 4
 
@@ -170,9 +178,6 @@ label-urgent = %name%
 label-urgent-foreground = #000000
 label-urgent-background = ${colors.background-alrt}
 label-urgent-padding = 4
-
-
-
 
 [module/wireless-network]
 type = internal/network
@@ -270,7 +275,7 @@ mapped = true
 format-muted-background = ${colors.background-unf}
 format-volume-background = ${colors.background-alt}
 format-volume = "   <ramp-volume>  <label-volume>  "
-format-volume-prefix = " "
+format-volume-prefix = "   "
 label-muted = "   mute   "
 
 ;label-muted = "          "
@@ -319,19 +324,14 @@ animation-charging-framerate = 750
 
 [module/cpu]
 type = internal/cpu
-
 interval = 0.5
-
-
-format = <label> <ramp-coreload>
+format = <label> 
 format-prefix-foreground = ${colors.foreground-unf}
 format-underline = #0a6cf5
+;format-background = ${colors.background-unf}
+label =▫         CPU %percentage%%
 
-
-format-background = ${colors.background-alt}
-
-label =|    CPU %percentage%%
-
+[bin/module]
 ; Spacing between individual per-core ramps
 ramp-coreload-spacing = 1
 ramp-coreload-0 = ▁
@@ -342,7 +342,8 @@ ramp-coreload-4 = ▅
 ramp-coreload-5 = ▆
 ramp-coreload-6 = ▇
 ramp-coreload-7 = █
-ramp-coreload-foreground = ${colors.foreground-alt}
+ramp-coreload-foreground = ${colors.foreground-unf}
+<ramp-coreload>
 
 [module/powermenu]
 type = custom/menu
@@ -360,13 +361,13 @@ label-separator-foreground = ${colors.foreground-alt}
 
 menu-0-0 = reboot
 menu-0-0-exec = menu-open-1
-menu-0-1 = "power off   "
+menu-0-1 = "power off"
 menu-0-1-exec = menu-open-2
 
 menu-1-0 = cancel
 menu-1-0-exec = menu-open-0
 menu-1-1 = reboot 
-menu-1-1-exec = restart
+menu-1-1-exec = reboot
 
 menu-2-0 = power off
 menu-2-0-exec = poweroff
@@ -385,74 +386,3 @@ screenchange-reload = true
 [global/wm]
 margin-top = 5
 margin-bottom = 5
-
-
-; 
-; [module/xkeyboard]
-; type = internal/xkeyboard
-; blacklist-0 = num lock
-; 
-; format-prefix = " "
-; format-prefix-foreground = ${colors.foreground-alt}
-; format-prefix-underline = ${colors.secondary}
-; 
-; label-layout = %layout%
-; label-layout-underline = ${colors.secondary}
-; 
-; label-indicator-padding = 2
-; label-indicator-margin = 1
-; label-indicator-background = ${colors.secondary}
-; label-indicator-underline = ${colors.secondary}
-; 
-; [module/filesystem]
-; type = internal/fs
-; interval = 25
-; 
-; mount-0 = /
-; 
-; label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
-; label-unmounted = %mountpoint% not mounted
-; label-unmounted-foreground = ${colors.foreground-alt}
-; 
-;
-;[module/xbacklight]
-;type = internal/xbacklight
-;
-;format = <label> <bar>
-;label = BL
-;
-;bar-width = 10
-;bar-indicator = |
-;bar-indicator-foreground = #ff
-;bar-indicator-font = 2
-;bar-fill = -
-;bar-fill-font = 2
-;bar-fill-foreground = #9f78e1
-;bar-empty = -
-;bar-empty-font = 2
-;bar-empty-foreground = ${colors.foreground-alt}
-;bar-empty-background = ${colors.foreground-mod}
-;
-;[module/backlight-acpi]
-;inherit = module/xbacklight
-;type = internal/backlight
-;card = intel_backlight
-;
-;[module/cpu]
-;type = internal/cpu
-;interval = 2
-;format-prefix = " "
-;format-prefix-foreground = ${colors.foreground-alt}
-;format-prefix-background = ${colors.foreground-mod}
-;format-underline = #f90000
-;label = %percentage%%
-;
-;[module/memory]
-;type = internal/memory
-;interval = 2
-;format-prefix = " "
-;format-prefix-foreground = ${colors.foreground-alt}
-;format-underline = #4bffdc
-;label = %percentage_used%%
-
-; vim:ft=dosini
