@@ -35,11 +35,11 @@ bindsym $mod+Return exec --no-startup-id gnome-terminal
 # kill focused window
 bindsym $mod+c kill
 
-set $bg-color 	         #c2c1d2
-set $inactive-bg-color   #c2c1d2
+set $bg-color 	         #8fa1b3
+set $inactive-bg-color   #8fa1b3
 set $text-color          #f3f4f5
 set $inactive-text-color #bbdde7
-set $urgent-bg-color     #E53935
+set $urgent-bg-color     #e53935
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id /home/jan/.config/rofi
@@ -147,7 +147,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec --no-startup-id i3-msg exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -176,8 +176,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $bg-color 	         #c2c1d2
-set $inactive-bg-color   #c2c1d2
+set $bg-color 	         #8fa1b3
+set $inactive-bg-color   #8fa1b3
 set $text-color          #f3f4f5
 set $inactive-text-color #bbdde7
 set $urgent-bg-color     #E53935
@@ -259,8 +259,8 @@ exec --no-startup-id wallee
 #i3-gaps config
 for_window [class=".*"] border pixel4
 smart_gaps on
-gaps inner 7
-gaps outer 10
+gaps inner 12
+gaps outer 22
 
 #My own keybindings
 bindsym Print exec --no-startup-id scrot ~/Pictures/Cheese_%a-%d%b%y_%H.%M.png
@@ -272,8 +272,7 @@ bindsym $mod+Shift+m exec --no-startup-id gnome-terminal --  micro
 bindsym $mod+Shift+x exec --no-startup-id betterlockscreen -l
 for_window [class="URxvt"] floating enable
 bindsym $mod+Shift+a exec --no-startup-id ~/Programs/Scripts/dmenuunicode
-bindsym $mod+Shift+s exec --no-startup-id ~/Programs/Scripts/dmenumount
-bindsym $mod+Shift+d exec --no-startup-id ~/Programs/Scripts/dmenuumount
+bindsym $mod+Shift+s exec --no-startup-id ~/Programs/Scripts/displayselect
 
 #swap caps lock and escape -> gnome tweaks does it better-> guess not
 exec --no-startup-id setxkbmap -option caps:escape

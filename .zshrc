@@ -107,6 +107,7 @@ source $ZSH/oh-my-zsh.sh
  alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
  alias cls="clear"
  alias starwars="telnet towel.blinkenlights.nl"
+ alias logout='i3-msg exit'
  
 #linux_logo -s -a
 
