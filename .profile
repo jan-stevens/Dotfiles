@@ -28,13 +28,11 @@ fi
 
 
 #nnn configuration
-
-export TERMINAL="Gnome-terminal"
-export BROWSER="firefox"
 export NNN_USE_EDITOR=1
+export TERMINAL="Gnome-terminal"
+export BROWSER="chromium"
 export READER="mupdf"
-export VISUAL="/snap/bin/micro"
-export EDITOR="$VISUAL"
-export NNN_BMS="h:~;d:~/Documents;D:~/Downloads"
 export PIX="feh"
 export ZIP="unzip"
+export EDITOR="neovim"
+
