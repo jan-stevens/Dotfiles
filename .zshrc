@@ -105,6 +105,8 @@ source $ZSH/oh-my-zsh.sh
  alias popcorn='/home/jan/Programs/Popcorn-Time/Popcorn-Time'
  alias nvidia="sudo optirun -b none nvidia-settings -c :8"
  alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+ alias cls="clear"
+ alias starwars="telnet towel.blinkenlights.nl"
  
 #linux_logo -s -a
 
@@ -160,8 +162,7 @@ POWERLEVEL9K_STATUS_VERBOSE=false
 
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 
-export VISUAL="/snap/bin/micro"
-export EDITOR="$VISUAL"
+export EDITOR='micro'
 
 linux_logo -a -f -L 7
 alias config='/usr/bin/git --git-dir=/home/jan/Dotfiles --work-tree=/home/jan'
