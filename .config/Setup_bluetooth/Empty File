@@ -1,0 +1,7 @@
+Broadcom does not want to distribute its drivers. follow this tutorial to enable bluetooth drivers. Arch wiki is useful to setup a2dp sound encoding(?) and auto connect to bluetooth. real live saver
+
+
+
+https://askubuntu.com/questions/632336/bluetooth-broadcom-43142-isnt-working
+
+https://wiki.archlinux.org/index.php/Bluetooth_headset#Switch_between_HSP/HFP_and_A2DP_setting
