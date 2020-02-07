@@ -50,13 +50,17 @@
 + **Display manager**: [lightdm-webkit-theme-litarvan](https://github.com/Litarvan/lightdm-webkit-theme-litarvan)
 
 ## Install
-Uses GNU Stow – https://www.gnu.org/software/stow/
+Clone (using `git`) this repo manually into the home directory:
 
-Usage: 
-> cd ~
-> git clone git://git.notthebe.ee/dotfiles
-> cd dotfiles
-> stow polybar (or i3, rofi, dmenu, etc.)
+    git clone https://github.com/webpro/dotfiles.git ~/.dotfiles
+    
+Use the program GNU Stow (https://www.gnu.org/software/stow/) to place the folders in their desired directory. Usage: 
+
+    cd ~
+    git clone git://git.notthebe.ee/dotfiles
+    cd dotfiles
+    stow polybar (or i3, rofi, dmenu, etc.) or stow *
+    
 ## Preview
 ![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_1.png)
 ![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_2.png)
