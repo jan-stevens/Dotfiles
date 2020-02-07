@@ -1,4 +1,21 @@
-# My personal .files
+![](https://flat.badgen.net/badge/platform/macOS,Windows,Linux?list=|)
+
+> ri • cing /ry-sing/
+>
+> - Making visual improvements and customization to your desktop and/or phone that can simplify your desktop environment but (generally) are completely pointless.
+
+> 好看是第一生产力。
+>
+> —— @SpencerWoo
+![](https://flat.badgen.net/badge/platform/macOS,Windows,Linux?list=|)
+
+> ri • cing /ry-sing/
+>
+> - Making visual improvements and customization to your desktop and/or phone that can simplify your desktop environment but (generally) are completely pointless.
+
+> 好看是第一生产力。
+>
+> —— @SpencerWoo
 ## Some details
 + **OS**: Manjaro 18.1.5
 + **WM**: i3wm
@@ -47,5 +64,5 @@ stow polybar (or i3, rofi, dmenu, etc.)
 ![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_2.png)
 ![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_3.png)
 ![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_4.png)
-## feedback
+## Feedback
 Suggestions/improvements [welcome](https://github.com/biogen98/Dotfiles/issues)!
