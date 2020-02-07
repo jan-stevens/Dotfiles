@@ -59,7 +59,9 @@ Use the program GNU Stow (https://www.gnu.org/software/stow/) to place the folde
     cd ~
     git clone git://git.notthebe.ee/dotfiles
     cd dotfiles
-    stow polybar (or i3, rofi, dmenu, etc.) or stow *
+    
+    stow polybar (or i3, rofi, dmenu, etc.) 
+    (Alternatively use: stow *)
     
 ## Preview
 ![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_1.png)
