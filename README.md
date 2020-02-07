@@ -9,32 +9,39 @@
 + **Org editor**: nano
 + **Browser**: Brave
 ## Dependencies
-+ asdf
-+ asdf
-+ asdf
-+ asdfasdf
-+ asdfasdf
-+ asdfadsf
-+ adsfadsf
++ i3-gaps-rounded-git / i3-gnome
++ zsh / [oh-my-zsh](https://ohmyz.sh/)
++ [Kitty](https://sw.kovidgoyal.net/kitty/)
++ [Polybar](https://polybar.github.io/)
++ [Rofi](https://github.com/davatorium/rofi)
++ [Spicetify-cli](https://github.com/khanhas/spicetify-cli)
++ [clearine](https://github.com/okitavera/clearine)
 ### Fonts
-+ **Jetbrains Mono**
-+ **Font Awesome**
++ **[Jetbrains Mono](https://www.jetbrains.com/lp/mono/#how-to-install)**
++ **[Font Awesome](https://fontawesome.com/)**
 + **Nerd Fonts**
 + **Iosevka**
 + **San Francisco Display**
 
 ## Some recommended applications
 + **Terminals**: Kitty / urxvt
-+ **File managers**: Nnn / Thunar / nautilus
++ **File managers**: Nnn / Thunar / Nautilus
 + **Launchers**: Rofi / dmenu / Ulauncher
-+ **Browsers**: Brace / Chromium
-+ **Editors**: Sublime Text (with NeoVintageous plugin) / micro
++ **Browsers**: Brave / Chromium
++ **Editors**: Sublime Text / Micro / Atom
 + **Music players**: Spotify
-+ **email client**: mailspring
-+ **Compositor**:
-+ **Display manager**: 
++ **email client**: Mailspring
++ **Compositor**: Compton-tryone-git (Enables kawase blur)
++ **Display manager**: [lightdm-webkit-theme-litarvan](https://github.com/Litarvan/lightdm-webkit-theme-litarvan)
 
 ## Install
+Uses GNU Stow – https://www.gnu.org/software/stow/
+
+Usage: 
+cd ~
+git clone git://git.notthebe.ee/dotfiles
+cd dotfiles
+stow polybar (or i3, rofi, dmenu, etc.)
 ## Preview
 ![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_1.png)
 ![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_2.png)
