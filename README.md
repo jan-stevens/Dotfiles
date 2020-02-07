@@ -5,7 +5,7 @@
     </blockquote>
 </div>
 
-![](https://flat.badgen.net/badge/platform/Linux)
+![t](https://flat.badgen.net/badge/platform/Linux)
 
 > ri • cing /ry-sing/
 >
