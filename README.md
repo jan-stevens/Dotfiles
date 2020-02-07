@@ -32,7 +32,7 @@
 + **Music players**: mpd (with ncmpcpp)
 ## Install
 ## Preview
-![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_1.png)
+![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_2.png)
 ## feedback
 Storing the dotfiles for my personal laptop1 running manjaro and i3+gnome.
 
