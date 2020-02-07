@@ -32,6 +32,7 @@
 + **Music players**: mpd (with ncmpcpp)
 ## Install
 ## Preview
+![Screenshot](Dotfiles/screenshots/Screenshot_1.png)
 ## feedback
 Storing the dotfiles for my personal laptop1 running manjaro and i3+gnome.
 
