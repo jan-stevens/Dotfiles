@@ -1,7 +1,7 @@
 <div align="center">
     <h1>Dotfiles</h1>
     <blockquote>
-        <p>OverMighty's Arch Linux dotfiles.</p>
+        <p>Biogen98's Manjaro dotfiles.</p>
     </blockquote>
 </div>
 
@@ -53,10 +53,10 @@
 Uses GNU Stow – https://www.gnu.org/software/stow/
 
 Usage: 
-cd ~
-git clone git://git.notthebe.ee/dotfiles
-cd dotfiles
-stow polybar (or i3, rofi, dmenu, etc.)
+> cd ~
+> git clone git://git.notthebe.ee/dotfiles
+> cd dotfiles
+> stow polybar (or i3, rofi, dmenu, etc.)
 ## Preview
 ![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_1.png)
 ![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_2.png)
