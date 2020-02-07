@@ -3,7 +3,7 @@
 + **OS**: Manjaro 18.1.5
 + **WM**: i3wm
 + **Terminal**: Kitty
-+ **File Manager**: nautilus and nnn
++ **File Manager**: nautilus / nnn
 + **Launcher**: Rofi
 + **Editor**: [micro](https://micro-editor.github.io/)
 + **Org editor**: nano
