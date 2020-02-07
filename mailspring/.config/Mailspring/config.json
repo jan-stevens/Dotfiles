@@ -1,0 +1,157 @@
+{
+  "*": {
+    "env": "production",
+    "core": {
+      "themes": [
+        "ui-light"
+      ],
+      "disabledPackages": [
+        "message-view-on-github",
+        "personal-level-indicators",
+        "phishing-detection",
+        "nylas-private-salesforce",
+        "github-contact-card",
+        "keybase",
+        "composer-markdown",
+        "composer-scheduler",
+        "composer-mail-merge",
+        "send-and-archive",
+        "main-calendar"
+      ],
+      "workspace": {
+        "mode": "split",
+        "systemTray": false
+      },
+      "keymapTemplate": "Gmail",
+      "tutorial": {
+        "seen": [
+          "ThreadSearchBar",
+          "ActivityListButton",
+          "ModeToggle",
+          "ToolbarSnooze"
+        ]
+      },
+      "theme": "ui-dark"
+    },
+    "identity": {
+      "id": "b8a6a149-b01c-412e-9373-ea2051004164",
+      "firstName": "Jan",
+      "lastName": "Stevens",
+      "emailAddress": "jan.adriaan.stevens98@gmail.com",
+      "object": "identity",
+      "createdAt": "2019-03-09T13:57:47.000Z",
+      "stripePlan": "Basic",
+      "stripePlanEffective": "Basic",
+      "stripeCustomerId": "cus_EfQXGdPbG7OgoU",
+      "stripePeriodEnd": "2020-02-09T13:57:46.000Z",
+      "featureUsage": {
+        "snooze": {
+          "quota": 15,
+          "period": "weekly",
+          "usedInPeriod": 0,
+          "featureLimitName": "basic-limit"
+        },
+        "send-later": {
+          "quota": 5,
+          "period": "weekly",
+          "usedInPeriod": 0,
+          "featureLimitName": "basic-limit"
+        },
+        "thread-sharing": {
+          "quota": 3,
+          "period": "weekly",
+          "usedInPeriod": 0,
+          "featureLimitName": "basic-limit"
+        },
+        "link-tracking": {
+          "quota": 5,
+          "period": "weekly",
+          "usedInPeriod": 0,
+          "featureLimitName": "basic-limit"
+        },
+        "open-tracking": {
+          "quota": 5,
+          "period": "weekly",
+          "usedInPeriod": 0,
+          "featureLimitName": "basic-limit"
+        },
+        "contact-profiles": {
+          "quota": 3,
+          "period": "weekly",
+          "usedInPeriod": 1,
+          "featureLimitName": "basic-limit"
+        },
+        "send-reminders": {
+          "quota": 5,
+          "period": "weekly",
+          "usedInPeriod": 0,
+          "featureLimitName": "basic-limit"
+        },
+        "translation": {
+          "quota": 50,
+          "period": "weekly",
+          "usedInPeriod": 0,
+          "featureLimitName": "basic-limit"
+        }
+      }
+    },
+    "accounts": [
+      {
+        "id": "01c2e95b",
+        "metadata": [],
+        "name": "Jan Stevens",
+        "provider": "gmail",
+        "emailAddress": "jan.adriaan.stevens98@gmail.com",
+        "settings": {
+          "imap_allow_insecure_ssl": false,
+          "imap_host": "imap.gmail.com",
+          "imap_port": 993,
+          "imap_security": "SSL / TLS",
+          "imap_username": "jan.adriaan.stevens98@gmail.com",
+          "refresh_client_id": "662287800555-0a5h4ii0e9hsbpq0mqtul7fja0jhf9uf.apps.googleusercontent.com",
+          "smtp_allow_insecure_ssl": false,
+          "smtp_host": "smtp.gmail.com",
+          "smtp_port": 587,
+          "smtp_security": "STARTTLS",
+          "smtp_username": "jan.adriaan.stevens98@gmail.com"
+        },
+        "label": "jan.adriaan.stevens98@gmail.com",
+        "autoaddress": {
+          "type": "bcc",
+          "value": ""
+        },
+        "aliases": [],
+        "syncState": "ok",
+        "__cls": "Account"
+      },
+      {
+        "id": "ff62d934",
+        "metadata": [],
+        "name": "r0668263",
+        "provider": "imap",
+        "emailAddress": "jan.stevens2@student.kuleuven.be",
+        "settings": {
+          "imap_allow_insecure_ssl": false,
+          "imap_host": "imaps.student.kuleuven.be",
+          "imap_port": 993,
+          "imap_security": "SSL / TLS",
+          "imap_username": "r0668263",
+          "smtp_allow_insecure_ssl": false,
+          "smtp_host": "smtps.kuleuven.be",
+          "smtp_port": 443,
+          "smtp_security": "SSL / TLS",
+          "smtp_username": "r0668263"
+        },
+        "label": "jan.stevens2@student.kuleuven.be",
+        "autoaddress": {
+          "type": "bcc",
+          "value": ""
+        },
+        "aliases": [],
+        "syncState": "ok",
+        "__cls": "Account"
+      }
+    ],
+    "accountsVersion": 4
+  }
+}

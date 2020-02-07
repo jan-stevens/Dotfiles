@@ -1,0 +1,124 @@
+BEGIN:VCALENDAR
+METHOD:CANCEL
+PRODID:Microsoft Exchange Server 2010
+VERSION:2.0
+BEGIN:VTIMEZONE
+TZID:Europe/Berlin
+BEGIN:STANDARD
+DTSTART:16010101T030000
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=10
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:16010101T020000
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=3
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+ORGANIZER;CN=Robin Vrielynck:MAILTO:robin.vrielynck@student.kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Anne Dani
+ els:MAILTO:anne.daniels@student.kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Annemie D
+ ebruyne:MAILTO:annemie.debruyne@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Bram Scha
+ efer:MAILTO:bram.schaefer@student.kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Chris Van
+  Haesendonck:MAILTO:chris.vanhaesendonck@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Christoff
+ el Waelkens:MAILTO:christoffel.waelkens@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=David Dud
+ al:MAILTO:david.dudal@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Eva Punte
+ r:MAILTO:eva.punter@student.kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Ewald Jan
+ ssens:MAILTO:ewald.janssens@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Hans Van 
+ Winckel:MAILTO:hans.vanwinckel@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Inge Serd
+ ons:MAILTO:inge.serdons@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Jan Steve
+ ns:MAILTO:jan.stevens2@student.kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Jan Vanbu
+ el:MAILTO:jan.vanbuel@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Joris Van
+  de Vondel:MAILTO:joris.vandevondel@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Jozefien 
+ Goossens:MAILTO:jozefien.goossens@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Leen Deci
+ n:MAILTO:leen.decin@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Liesbeth 
+ Volckaert:MAILTO:liesbeth.volckaert@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Margriet 
+ Van Bael:MAILTO:margriet.vanbael@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Michelle 
+ Wijshoff:MAILTO:michelle.wijshoff@student.kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Mieke De 
+ Cock:MAILTO:mieke.decock@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Nathal Se
+ verijns:MAILTO:nathal.severijns@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Patrick D
+ e Causmaecker:MAILTO:patrick.decausmaecker@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Piet Van 
+ Duppen:MAILTO:piet.vanduppen@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Ronald Co
+ ols:MAILTO:ronald.cools@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Sander Gr
+ osemans:MAILTO:sander.grosemans@student.kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Simon Mae
+ naut:MAILTO:simon.maenaut@student.kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Sylvia We
+ nmackers:MAILTO:sylvia.wenmackers@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Thibaut D
+ emaerel:MAILTO:thibaut.demaerel@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Thomas Va
+ n Riet:MAILTO:thomas.vanriet@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Veerle Va
+ nhoof:MAILTO:veerle.vanhoof@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=Wojciech 
+ De Roeck:MAILTO:wojciech.deroeck@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=FALSE;CN=kelly.hou
+ ben@asm.com:MAILTO:kelly.houben@asm.com
+DESCRIPTION;LANGUAGE=nl-BE:Beste POC-leden en geïnteresseerden\,\nDee eers
+ te POC vergadering van het nieuwe academische jaar\ngaat op oktober 10\, 1
+ 2u tot 14u\, door\, in lokaal 05.32.\n\nGelieve je aanwezigheid te bevesti
+ gen\, liever via antwoord\nop deze uitnodiging of email naar mij EN annemi
+ e.debruyne@kuleuven.be\n(zodat er voldoende broodjes besteld kunnen worden
+ ).\n\nDe (voorlopige) agenda vinden jullie op Sharepoint:\nhttps://webdoc.
+ groupware.kuleuven.be/poc/50369478/SitePages/pocdoc.aspx\nDe bijlagen zull
+ en daar ook binnenkort verschijnen.\nAls jullie geen toegang tot Sharepoin
+ t hebben\, laat mij dat weten.\n\nVriendelijke groeten\nRiccardo Raabe (se
+ cretaris POC fysica)\n\n=====================\n\n(Voorlopige) Agenda POC 1
+ 0 Okt 2019\n\n  I. AGENDA & VERSLAG\n II. MEDEDELINGEN EN RAPPORTERING ACT
+ IEPUNTEN VORIGE VERGADERING\nIII. SAMENSTELLING POC\n IV. PROGRAMMA - OPLE
+ IDING\n     1. Opleidingsplan - update\n     2. Ba Fysica: vormingsdoelen\
+ n     3. Ba Fysica – minor sterrenkunde en informatica: voorstel 3sp OPO
+  “Astronomy methods\, tools and techniques” (H. Van Winckel)\n     4. 
+ Leerlijn duurzaamheid - Opvolging docentendag\n     5. Ma Physics: taalvak
+ ken in ISP (uitwisselingsstudenten)\n     6. Plan achterban - prioriteiten
+ \n\n(Bij tijdgebrek zijn volgende agendapunten voor een volgende vergaderi
+ ng:)\n     7. Ba Fysica: visie over rol van keuzevakken (stochastische prc
+ essen\, introduction to general relativity) – (C. Maes)\n     8. Onderzo
+ ek in de opleidingen – research/company internships\n  V. VARIA\n
+SUMMARY;LANGUAGE=nl-BE:Vergadering POC fysica
+DTSTART;TZID=Europe/Berlin:20191120T120000
+DTEND;TZID=Europe/Berlin:20191120T140000
+UID:85D7864BEAAA4877888B5C76362D3E4B0
+CLASS:PUBLIC
+PRIORITY:5
+DTSTAMP:20191113T175833Z
+TRANSP:OPAQUE
+STATUS:CANCELLED
+SEQUENCE:1
+LOCATION;LANGUAGE=nl-BE:05.32
+X-MICROSOFT-CDO-APPT-SEQUENCE:1
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INSTTYPE:0
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+END:VEVENT
+END:VCALENDAR

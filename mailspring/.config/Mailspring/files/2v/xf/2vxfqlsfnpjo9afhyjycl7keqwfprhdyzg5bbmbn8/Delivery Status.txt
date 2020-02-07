@@ -1,0 +1,12 @@
+Reporting-MTA: dns; googlemail.com
+Received-From-MTA: dns; jan.adriaan.stevens98@gmail.com
+Arrival-Date: Wed, 11 Dec 2019 00:52:17 -0800 (PST)
+X-Original-Message-ID: <7A8D6255-77BE-4A68-8707-87BE3E424E6B@getmailspring.com>
+
+Final-Recipient: rfc822; joanne.kruimel@mumc.nl
+Action: failed
+Status: 5.4.1
+Remote-MTA: dns; mumc-nl.mail.protection.outlook.com. (104.47.1.36, the server
+ for the domain mumc.nl.)
+Diagnostic-Code: smtp; 550 5.4.1 Recipient address rejected: Access denied [VE1EUR01FT045.eop-EUR01.prod.protection.outlook.com]
+Last-Attempt-Date: Wed, 11 Dec 2019 00:52:19 -0800 (PST)

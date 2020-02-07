@@ -1,0 +1,127 @@
+BEGIN:VCALENDAR
+METHOD:CANCEL
+PRODID:Microsoft Exchange Server 2010
+VERSION:2.0
+BEGIN:VTIMEZONE
+TZID:Romance Standard Time
+BEGIN:STANDARD
+DTSTART:16010101T030000
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=10
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:16010101T020000
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=3
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+ORGANIZER;CN=Riccardo Raabe:MAILTO:riccardo.raabe@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Michelle W
+ ijshoff:MAILTO:michelle.wijshoff@student.kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Anne Danie
+ ls:MAILTO:anne.daniels@student.kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Eva Punter
+ :MAILTO:eva.punter@student.kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Bram Schae
+ fer:MAILTO:bram.schaefer@student.kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Jan Steven
+ s:MAILTO:jan.stevens2@student.kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Sander Gro
+ semans:MAILTO:sander.grosemans@student.kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Robin Vrie
+ lynck:MAILTO:robin.vrielynck@student.kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Simon Maen
+ aut:MAILTO:simon.maenaut@student.kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Margriet V
+ an Bael:MAILTO:margriet.vanbael@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Patrick De
+  Causmaecker:MAILTO:patrick.decausmaecker@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Leen Decin
+ :MAILTO:leen.decin@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Liesbeth V
+ olckaert:MAILTO:liesbeth.volckaert@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Christoffe
+ l Waelkens:MAILTO:christoffel.waelkens@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Piet Van D
+ uppen:MAILTO:piet.vanduppen@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Nathal Sev
+ erijns:MAILTO:nathal.severijns@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Chris Van 
+ Haesendonck:MAILTO:chris.vanhaesendonck@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Ronald Coo
+ ls:MAILTO:ronald.cools@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Hans Van W
+ inckel:MAILTO:hans.vanwinckel@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Mieke De C
+ ock:MAILTO:mieke.decock@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Ewald Jans
+ sens:MAILTO:ewald.janssens@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Inge Serdo
+ ns:MAILTO:inge.serdons@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Veerle Van
+ hoof:MAILTO:veerle.vanhoof@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Wojciech D
+ e Roeck:MAILTO:wojciech.deroeck@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Jozefien G
+ oossens:MAILTO:jozefien.goossens@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Joris Van 
+ de Vondel:MAILTO:joris.vandevondel@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Thomas Van
+  Riet:MAILTO:thomas.vanriet@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Annemie De
+ bruyne:MAILTO:annemie.debruyne@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Sylvia Wen
+ mackers:MAILTO:sylvia.wenmackers@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Thibaut De
+ maerel:MAILTO:thibaut.demaerel@kuleuven.be
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=kelly.houb
+ en@asm.com:MAILTO:kelly.houben@asm.com
+DESCRIPTION;LANGUAGE=en-GB:Dag David\,\n\nZou dat werken via Skype for Busi
+ ness (link hieronder)?\n\nAnders geef mij je gewone Skype adres (mijn is r
+ iccardo.raabe)\n\n\n\n\n\n\n\n............................................
+ ..........................................................................
+ ...................\n\nJoin online meeting <https://meet.kuleuven.be/ricca
+ rdo.raabe/AZGJ7SBP>\n\nHaving trouble with joining? Try the Skype Web App 
+ <https://meet.kuleuven.be/riccardo.raabe/AZGJ7SBP?sl=1>\n\n\n\nJoin via Ph
+ one\n\n+3216379898\,\, 4553583#\n\n+3216379897\,\, 4553583#\n\nFind a loca
+ l number <https://lyncdialin.kuleuven.be>\n\n\n\nConference ID: 4553583\n\
+ n\n\nForgotten your dial-in PIN? <https://lyncdialin.kuleuven.be> | First 
+ online meeting? <https://support.office.microsoft.com/en-us/article/join-a
+ -skype-for-business-meeting-3862be6d-758a-4064-a016-67c0febf3cd5?ui=en-US&
+ rs=en-US&ad=US#OS_Type=Mac> | Help <https://admin.kuleuven.be/icts/service
+ s/videoconferentie/SkypeViaVC>\n\n\n\n[Logo]\n\n\n\n......................
+ ..........................................................................
+ .........................................\n\n\n\n\n\nBeste POC-leden en ge
+ ïnteresseerden\,\n\nDee tweede POC vergadering van het academische jaar g
+ aat op november 20\, 12u tot 14u\, door\, in lokaal 05.32.\n\nGelieve je a
+ anwezigheid te bevestigen\, liever via antwoord op deze uitnodiging of ema
+ il naar mij EN annemie.debruyne@kuleuven.be (zodat er voldoende broodjes b
+ esteld kunnen worden).\n\nDe agenda volgt nog voor de vergadering.\n\nDocu
+ menten zijn altijd op Sharepoint beschikbaar:\nhttps://webdoc.groupware.ku
+ leuven.be/poc/50369478/SitePages/pocdoc.aspx\nAls jullie geen toegang tot 
+ Sharepoint hebben\, laat mij dat weten.\n\nVriendelijke groeten\nRiccardo 
+ Raabe\n
+SUMMARY;LANGUAGE=en-GB:Canceled: POC Fysica
+DTSTART;TZID=Romance Standard Time:20191120T120000
+DTEND;TZID=Romance Standard Time:20191120T140000
+UID:F6375F45-D463-4DA6-91F5-D1B52721DAD6
+CLASS:PUBLIC
+PRIORITY:5
+DTSTAMP:20191120T110222Z
+TRANSP:OPAQUE
+STATUS:CANCELLED
+SEQUENCE:1
+LOCATION;LANGUAGE=en-GB:Online Meeting
+X-MICROSOFT-CDO-APPT-SEQUENCE:1
+X-MICROSOFT-CDO-OWNERAPPTID:2117821265
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+X-MICROSOFT-CDO-INTENDEDSTATUS:FREE
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INSTTYPE:0
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+END:VEVENT
+END:VCALENDAR

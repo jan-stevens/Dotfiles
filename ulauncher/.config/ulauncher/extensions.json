@@ -1,0 +1,30 @@
+{
+    "com.github.iboyperson.ulauncher-system": {
+        "id": "com.github.iboyperson.ulauncher-system",
+        "url": "https://github.com/iboyperson/ulauncher-system",
+        "updated_at": "2020-02-04T22:43:29.375149",
+        "last_commit": "03c44234d79ecd20aa1d4e86f78842dda8388ea9",
+        "last_commit_time": "2019-12-08T07:41:45"
+    },
+    "com.github.isacikgoz.ukill": {
+        "id": "com.github.isacikgoz.ukill",
+        "url": "https://github.com/isacikgoz/ukill",
+        "updated_at": "2020-02-04T22:43:45.322020",
+        "last_commit": "bc50d9f41d46b6813a5aeebddd15734dcdb9d8db",
+        "last_commit_time": "2019-05-28T18:30:00"
+    },
+    "com.github.friday.ulauncher-gnome-settings": {
+        "id": "com.github.friday.ulauncher-gnome-settings",
+        "url": "https://github.com/friday/ulauncher-gnome-settings",
+        "updated_at": "2020-02-04T22:44:05.620373",
+        "last_commit": "12281ba540740ed3f47cf1d49bcfc506ea78fbd1",
+        "last_commit_time": "2019-05-09T21:44:58"
+    },
+    "com.github.ulauncher.ulauncher-emoji": {
+        "id": "com.github.ulauncher.ulauncher-emoji",
+        "url": "https://github.com/Ulauncher/ulauncher-emoji",
+        "updated_at": "2020-02-04T22:44:08.093492",
+        "last_commit": "4734455e255a401ff7507192386ed62361cb3748",
+        "last_commit_time": "2019-05-20T18:00:00"
+    }
+}
