@@ -1,2 +1,2 @@
 # Dotfiles
-Storing my dotfiles for manjaro_gnome with i3wm
+Storing the dotfiles for my personal laptop1 running manjaro and i3+gnome.
