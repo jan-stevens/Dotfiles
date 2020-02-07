@@ -1,12 +1,10 @@
-![](https://flat.badgen.net/badge/platform/macOS,Windows,Linux?list=|)
+<div align="center">
+    <h1>Dotfiles</h1>
+    <blockquote>
+        <p>OverMighty's Arch Linux dotfiles.</p>
+    </blockquote>
+</div>
 
-> ri • cing /ry-sing/
->
-> - Making visual improvements and customization to your desktop and/or phone that can simplify your desktop environment but (generally) are completely pointless.
-
-> 好看是第一生产力。
->
-> —— @SpencerWoo
 ![](https://flat.badgen.net/badge/platform/macOS,Windows,Linux?list=|)
 
 > ri • cing /ry-sing/
