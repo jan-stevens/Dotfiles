@@ -1,4 +1,4 @@
-# .files
+# My personal .files
 ## Some details
 + **OS**: Manjaro 18.1.5
 + **WM**: i3wm
