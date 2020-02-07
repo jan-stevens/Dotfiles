@@ -1,9 +1,0 @@
-bind-key k up
-bind-key j down
-bind-key l open
-bind-key h quit
-max-items        200
-unbind-key       r
-bind-key         r    reload-all
-auto-reload yes
-browser "i3 exec mpv"
