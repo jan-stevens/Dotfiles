@@ -24,6 +24,7 @@
 + **Org editor**: nano
 + **Browser**: Brave
 ## Dependencies
+### Programs
 + i3-gaps-rounded-git / i3-gnome
 + zsh / [oh-my-zsh](https://ohmyz.sh/)
 + [Kitty](https://sw.kovidgoyal.net/kitty/)
