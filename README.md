@@ -1,39 +1,44 @@
 # .files
 ## Some details
-+ **OS**: Ubuntu 18.04
-+ **WM**: AwesomeWM
++ **OS**: Manjaro 18.1.5
++ **WM**: i3wm
 + **Terminal**: Kitty
-+ **File Manager**: Nemo for GUI, Ranger for terminal
++ **File Manager**: nautilus and nnn
 + **Launcher**: Rofi
-+ **Editor**: Vim
-+ **Org editor**: [Remacs](https://github.com/remacs/remacs)
-+ **Browser**: Firefox
++ **Editor**: [micro](https://micro-editor.github.io/)
++ **Org editor**: nano
++ **Browser**: Brave
 ## Dependencies
++ asdf
++ asdf
++ asdf
++ asdfasdf
++ asdfasdf
++ asdfadsf
++ adsfadsf
 ### Fonts
-+ **Typicons**
-+ **Material Icons**
-+ **Icomoon** - [download](https://www.dropbox.com/s/hrkub2yo9iapljz/icomoon.zip?dl=0)
++ **Jetbrains Mono**
++ **Font Awesome**
 + **Nerd Fonts**
-##### Monospace
-+ **Iosevka** - [download my custom build](https://www.dropbox.com/s/nqyurzy8wcupkkz/myosevka.zip?dl=0)
-+ **Anka/Coder**
-##### Fancy
-+ **Scriptina**
-##### Sans
-+ **Google Sans**
-+ **Roboto Condensed**
++ **Iosevka**
 + **San Francisco Display**
+
 ## Some recommended applications
-+ **Terminals**: Termite / Kitty / urxvt / st
-+ **File managers**: Nemo / Thunar
-+ **Launchers**: Rofi / dmenu
-+ **Browsers**: Firefox (with Vimium extension) / Qutebrowser
-+ **Editors**: Vim / Sublime Text (with NeoVintageous plugin) / Spacemacs
-+ **Music players**: mpd (with ncmpcpp)
++ **Terminals**: Kitty / urxvt
++ **File managers**: Nnn / Thunar / nautilus
++ **Launchers**: Rofi / dmenu / Ulauncher
++ **Browsers**: Brace / Chromium
++ **Editors**: Sublime Text (with NeoVintageous plugin) / micro
++ **Music players**: Spotify
++ **email client**: mailspring
++ **Compositor**:
++ **Display manager**: 
+
 ## Install
 ## Preview
+![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_1.png)
 ![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_2.png)
+![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_3.png)
+![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_4.png)
 ## feedback
-Storing the dotfiles for my personal laptop1 running manjaro and i3+gnome.
-
-recommendation: lightdm webkit2 litarvan theme
+Suggestions/improvements [welcome](https://github.com/biogen98/Dotfiles/issues)!
