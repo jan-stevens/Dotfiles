@@ -17,8 +17,7 @@
 + **Terminal**: Kitty
 + **File Manager**: nautilus / nnn
 + **Launcher**: Rofi
-+ **Editor**: [micro](https://micro-editor.github.io/)
-+ **Org editor**: nano
++ **Editor**: [micro](https://micro-editor.github.io/) / atom
 + **Browser**: Brave
 ## Dependencies
 ### Programs
