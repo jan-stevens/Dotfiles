@@ -48,6 +48,8 @@
 + **Music players**: Spotify
 + **email client**: Mailspring
 + **Compositor**: Compton-tryone-git (Enables kawase blur)
++ **Window manager**: i3 gaps rounded
++ **Desktop manager**: Gnome
 + **Display manager**: [lightdm-webkit-theme-litarvan](https://github.com/Litarvan/lightdm-webkit-theme-litarvan)
 
 ## Install
