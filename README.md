@@ -11,9 +11,6 @@
 >
 > - Making visual improvements and customization to your desktop and/or phone that can simplify your desktop environment but (generally) are completely pointless.
 
-> 好看是第一生产力。
->
-> —— @SpencerWoo
 ## Some details
 + **OS**: Manjaro 18.1.5
 + **WM**: i3wm
