@@ -19,6 +19,7 @@
 + **Launcher**: Rofi
 + **Editor**: [micro](https://micro-editor.github.io/) / atom
 + **Browser**: Brave
++ **GTK theme**: Material-Black-Cherry
 ## Dependencies
 ### Programs
 + i3-gaps-rounded-git / i3-gnome
