@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# copy all my dotfiles to git/dotfiles
+echo "Syncing i3" &
+cp -r ~/.config/i3 ~/git/Dotfiles/i3/.config/ ;
+echo "Syncing kitty"
+cp -r ~/.config/kitty ~/git/Dotfiles/kitty/.config ;
+echo "Syncing fonts" &
+cp -r ~/.fonts ~/git/Dotfiles/fonts/ ;
+echo "Syncing oh-my-zsh" &
+cp -r ~/.oh-my-zsh ~/git/Dotfiles/oh-my-zsh ;
+echo "Syncing gtk-themes" &
+cp -r ~/.themes ~/git/Dotfiles/themes ;
+echo "Syncing zsh" &
+cp -r ~/.zshrc ~/git/Dotfiles/zsh/ ;
+echo "Syncing compton" &
+cp -r ~/.config/compton.conf ~/git/Dotfiles/compton/.config ;
+echo "Syncing i3" &
+cp -r ~/.config/i3 ~/git/Dotfiles/i3/.config ;
+echo "Syncing polybar" &
+cp -r ~/.config/polybar ~/git/Dotfiles/polybar/.config/ ;
+echo "Syncing rofi" &
+cp -r ~/.config/rofi ~/git/Dotfiles/rofi/.config/ ;
+echo "Syncing spicetify" &
+cp -r ~/.config/spicetify ~/git/Dotfiles/spicetify/.config ;
+echo "Syncing wallpapers" &
+cp -r ~/Pictures/Wallpapers ~/git/Dotfiles/wallpaper/Pictures/ ;
+git pull ;
+git add --all ;
+git commit -m "Updating dotfiles" ;
+git push

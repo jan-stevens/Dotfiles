@@ -11,6 +11,8 @@
 # Set modkey
 set $mod Mod4
 
+# Let focus follow mouse
+focus_follows_mouse yes
 # Font for window titles.
 font pango:Jetbrains Mono 11
 
@@ -24,7 +26,7 @@ bindsym $mod+Return exec --no-startup-id kitty
 bindsym $mod+c kill
 
 # start dmenu (a program launcher)
-#bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+d exec --no-startup-id rofi -show run
 
 # change focus
 bindsym $mod+h focus left
@@ -117,8 +119,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 assign [class="Mailspring"] $ws4
 for_window [class="Spotify"] move to workspace $ws5
-
-
+for_window [class="MEGAsync"] floating enable
 
 # reload the configuration file
 #bindsym $mod+Shift+r+c reload
@@ -183,41 +184,36 @@ bindsym XF86LaunchB exec --no-startup-id blueman-manager
 bindsym XF86LaunchA exec --no-startup-id pavucontrol
 
 # My exec commands
+exec_always --no-startup-id compton
 exec_always --no-startup-id gnome-flashback
 exec_always --no-startup-id sleep 0.8 && feh --bg-scale ~/Pictures/Wallpapers/manuel-cosentino-n--CMLApjfI-unsplash.jpg
-exec_always --no-startup-id compton -cGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id dunst 
 exec --no-startup-id unclutter --timeout 2
 exec --no-startup-id sleep 0.5 && gsettings set org.gnome.desktop.interface cursor-size 48
-#exec --no-startup-id ulauncher
-
-#Redundent exec commands
-#exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-#exec_always --no-startup-id gnome-power-manager
-#exec_always --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
-#exec_always --no-startup-id sleep 0.02 && gnome-flashback
+exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
+exec_always --no-startup-id gnome-power-manager
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 #i3-gaps config
 for_window [class=".*"] border pixel0
 #smart_borders on
 gaps inner 10
 gaps outer 15
-border_radius 10
+border_radius 15
 
 #My own keybindings
 bindsym Print exec --no-startup-id flameshot gui
 bindsym $mod+t exec --no-startup-id kitty htop & kitty gotop
-bindsym $mod+Shift+m exec --no-startup-id gnome-terminal -- micro
-bindsym $mod+m exec --no-startup-id gnome-terminal -- nnn 
+bindsym $mod+Shift+m exec --no-startup-id kitty micro
+bindsym $mod+m exec --no-startup-id kitty nnn 
 bindsym $mod+Shift+n exec --no-startup-id fromscratch
 bindsym $mod+Shift+c exec --no-startup-id brave
-bindsym $mod+Shift+x exec --no-startup-id dm-tool lock
+bindsym $mod+Shift+x exec --no-startup-id loginctl lock-session
 bindsym $mod+Shift+g exec --no-startup-id gnome-control-center
 bindsym $mod_Shift+t exec --no-startup-id tomate-gtk
 
 # System bindings with scripts
-bindsym $mod+Shift+a exec --no-startup-id ~/Programs/Scripts/dmenuunicode
 bindsym $mod+Shift+q exec --no-startup-id ~/Programs/Scripts/bluetooth_sony2
 bindsym $mod+q exec --no-startup-id ~/Programs/Scripts/bluetooth_sony
 

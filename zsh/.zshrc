@@ -109,6 +109,7 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
+ alias lock='~/Programs/Scripts/lock'
  alias sysinfo='neofetch'
  alias goDNA='/home/jan/Documents/oxDNA/build/bin/oxDNA'
  alias gocogli1='/home/jan/Documents/cogli1/build/bin/cogli1'
@@ -117,7 +118,8 @@ source $ZSH/oh-my-zsh.sh
  alias display='arandr'
  alias sound='pavucontrol'
  alias popcorn='/home/jan/Programs/Popcorn-Time/Popcorn-Time'
-  alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+ alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+ alias cmatrix="unimatrix -fa"
  alias cls="clear"
  alias starwars="telnet towel.blinkenlights.nl"
  alias logout='i3-msg exit'
@@ -132,54 +134,13 @@ source $ZSH/oh-my-zsh.sh
  alias bat='upower -i /org/freedesktop/UPower/devices/keyboard_hid_dco2co26ocdo37o75_battery | grep -E "state|to\ full|percentage"'
  alias printer='system-config-printer'
  alias lmp='~/lammps-7Aug19/src/lmp_serial'
-#Powerlevel 9k Configuration
 
-POWERLEVEL9K_MODE='nerdfont-complete'
+# Bash insulter
+if [ -f /etc/bash.command-not-found ]; then
+    . /etc/bash.command-not-found
+fi
 
-#DISABLE_AUTO_TITLE="true"
-
-POWERLEVEL9K_BATTERY_CHARGING='yellow'
-POWERLEVEL9K_BATTERY_CHARGED='green'
-POWERLEVEL9K_BATTERY_DISCONNECTED='$DEFAULT_COLOR'
-POWERLEVEL9K_BATTERY_LOW_THRESHOLD='10'
-POWERLEVEL9K_BATTERY_LOW_COLOR='red'
-POWERLEVEL9K_BATTERY_ICON='\uf1e6 '
-POWERLEVEL9K_BATTERY_VERBOSE='false'
-
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='\uf0da'
-
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='99D3F0'
-POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='99D3F0'
-
-POWERLEVEL9K_TIME_BACKGROUND="black"
-POWERLEVEL9K_TIME_FOREGROUND="yellow"
-POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S}"
-
-POWERLEVEL9K_DATE_BACKGROUND="blue"
-POWERLEVEL9K_DATE_FOREGROUND="black"
-
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='\uf0da'
-
-POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=$'\uE0B0'
-POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=$'\uE0B2'
-
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='99D3F0'
-POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='99D3F0'
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=('battery' 'context' 'dir' 'vcs')
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=('status' 'time' 'date')
-
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
-
-POWERLEVEL9K_STATUS_VERBOSE=false
-
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-
-
-#nnn configuration
+# nnn configuration
 export NNN_USE_EDITOR=1
 export TERMINAL="kitty"
 export BROWSER="brave"
@@ -193,3 +154,19 @@ export EDITOR="/usr/bin/micro"
 #pfetch
 ufetch
 #cpufetch
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/jan/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/jan/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/jan/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/jan/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

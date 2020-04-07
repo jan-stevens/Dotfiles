@@ -10,7 +10,7 @@
 ;==========================================================
 
 [colors]
-background = #222222
+background = #000000
 background-alt = #444
 foreground = #fcfcfc
 foreground-alt = #555
@@ -125,22 +125,22 @@ label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-label-focused = "%{T6}  %{T1}%{T3}%{T4}%{T6} %{T1}%{F#ff4971}%index%%{F-}%{T6} %{T4}%{T3}%{T6}  "
+label-focused = "%{T6}%{T1}%{T3} %{T4}%{T3} %{T1}%{F#ff4971}%index%%{F-}%{T3} %{T4}%{T3} %{T6}"
 label-focused-background = ${colors.background}
 label-focused-padding = 0
 label-focused-font = 0
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = "%{T6}  %{T1}%index%%{T6}  "
+label-unfocused = "%{T6}%{T1}%index%%{T6}"
 label-unfocused-padding = 1
 
 ; visible = Active workspace on unfocused monitor
-label-visible = "%{T6}  %{T1}%index%%{T6}  "
+label-visible = "%{T6}%{T1}%index%%{T6}"
 label-visible-background = ${self.label-focused-background}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = "%{T6}  %{T1}%index%%{T6}  "
+label-urgent = "%{T6}%{T1}%index%%{T6}"
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 1
 
