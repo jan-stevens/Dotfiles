@@ -8,7 +8,7 @@ cp -r ~/.config/kitty ~/git/Dotfiles/kitty/.config ;
 echo "Syncing fonts" &
 cp -r ~/.fonts ~/git/Dotfiles/fonts/ ;
 echo "Syncing oh-my-zsh" &
-cp -r ~/.oh-my-zsh ~/git/Dotfiles/oh-my-zsh ;
+cp -r ~/.oh-my-zsh/themes/oxide.zsh-theme    ~/git/Dotfiles/oh-my-zsh/.oh-my-zsh/themes/oxide.zsh-theme  ;
 echo "Syncing gtk-themes" &
 cp -r ~/.themes ~/git/Dotfiles/themes ;
 echo "Syncing zsh" &
