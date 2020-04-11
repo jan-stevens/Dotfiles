@@ -34,7 +34,6 @@
 + **[Font Awesome](https://fontawesome.com/)**
 + **Nerd Fonts**
 + **Iosevka**
-+ **San Francisco Display**
 
 ## Some recommended applications
 + **Terminals**: Kitty / urxvt

@@ -41,8 +41,8 @@ border-color = #00000000
 
 border-top-size = 0
 border-bottom-size = 17
-border-left-size = 26
-border-right-size = 26
+border-left-size = 50
+border-right-size = 50
 
 padding-left = 1
 padding-right = 1
