@@ -46,17 +46,17 @@
 + **Compositor**: Compton-tryone-git (Enables kawase blur)
 + **Window manager**: i3 gaps rounded
 + **Desktop manager**: Gnome
-+ **Display manager**: [lightdm-webkit-theme-litarvan](https://github.com/Litarvan/lightdm-webkit-theme-litarvan)
++ **Display manager**: [lightdm-mini-greeter](https://github.com/prikhi/lightdm-mini-greeter)
 
 ## Install
 Clone (using `git`) this repo manually into the home directory:
 
-    git clone https://github.com/webpro/dotfiles.git ~/.dotfiles
+    git clone https://github.com/biogen98/Dotfiles.git ~/.dotfiles
     
 Use the program GNU Stow (https://www.gnu.org/software/stow/) to place the folders in their desired directory. Usage: 
 
     cd ~
-    git clone git://git.notthebe.ee/dotfiles
+    git clone  https://github.com/biogen98/Dotfiles.git
     cd dotfiles
     stow polybar (or i3, rofi, dmenu, etc.) 
 Alternatively use:
