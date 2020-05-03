@@ -218,3 +218,9 @@ bindsym $mod_Shift+t exec --no-startup-id tomate-gtk
 # System bindings with scripts
 bindsym $mod+Shift+q exec --no-startup-id ~/Programs/Scripts/bluetooth_sony2
 bindsym $mod+q exec --no-startup-id ~/Programs/Scripts/bluetooth_sony
+
+# vim keybindins
+exec_always --no-startup-id xmodmap -e "clear lock"
+exec_always --no-startup-id xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
+exec_always --no-startup-id xmodmap -e "keycode 66 = Escape NoSymbol Escape"
+

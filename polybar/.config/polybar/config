@@ -72,11 +72,11 @@ separator =
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:30:...%
+label = %title:0:10:...%
 
 [module/network]
 type = custom/script
-interval = 2
+interval = 5.0
 exec = ~/.config/polybar/scripts/network.sh
 format =%{T3}%{T1} <label>
 
@@ -146,7 +146,7 @@ label-urgent-padding = 1
 
 [module/spotify]
 type = custom/script
-interval = 1
+interval = 5.0
 format = <label>
 exec = python ~/.config/polybar/scripts/spotify_status.py -f '{artist} - {song}'
 label-foreground = ${colors.foreground-alt}
@@ -178,7 +178,7 @@ label-foreground = ${colors.fill2}
 
 [module/pulseaudio]
 type = internal/pulseaudio
-
+interval = 5.0
 format-volume = <bar-volume>
 label-volume = VOL %percentage%%
 label-volume-foreground = ${root.foreground}
