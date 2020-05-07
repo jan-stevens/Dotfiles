@@ -17,7 +17,7 @@
 + **Terminal**: Kitty
 + **File Manager**: nautilus / nnn
 + **Launcher**: Rofi
-+ **Editor**: [micro](https://micro-editor.github.io/) / atom
++ **Editor**: nvim / [micro](https://micro-editor.github.io/) / vscode
 + **Browser**: Brave
 + **GTK theme**: Material-Black-Cherry
 ## Dependencies
@@ -52,17 +52,17 @@
 Clone (using `git`) this repo manually into the home directory:
 
     git clone https://github.com/biogen98/Dotfiles.git ~/.dotfiles
-    
-Use the program GNU Stow (https://www.gnu.org/software/stow/) to place the folders in their desired directory. Usage: 
+
+Use the program GNU Stow (https://www.gnu.org/software/stow/) to place the folders in their desired directory. Usage:
 
     cd ~
     git clone  https://github.com/biogen98/Dotfiles.git
     cd dotfiles
-    stow polybar (or i3, rofi, dmenu, etc.) 
+    stow polybar (or i3, rofi, dmenu, etc.)
 Alternatively use:
 
     stow *
-    
+
 ## Preview
 ![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_1.png)
 ![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_2.png)
