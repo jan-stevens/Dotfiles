@@ -9,15 +9,14 @@ let mapleader=" "
 " Remove trailing whitespace on save
     autocmd BufWritePre * %s/\s\+$//e
 
-" Use <c-space> to trigger completion.
-    inoremap <silent><expr> <c-space> coc#refresh()
-
 " Shortcutting split navigation
     map <C-h> <C-w>h
     map <C-j> <C-w>j
     map <C-k> <C-w>k
     map <C-l> <C-w>l
-
+" Enable and disable auto comment
+    map <leader>c : setlocal formatoptions-=cro<CR>
+    map <leader>C : setlocal formatoptions=cro<CR>
 " Alias replace all to S
     nnoremap S :%s//gI<Left><Left><Left>
 
@@ -46,7 +45,6 @@ let mapleader=" "
     set linebreak
     set showbreak=+++
     set nobackup
-    set textwidth=100
     set showmatch
     set noswapfile
     set hlsearch
@@ -93,25 +91,31 @@ let mapleader=" "
     set splitbelow splitright
 
 " Give more space for displaying messages.
-    set cmdheight=2
-
-" Nerd tree
-	map <leader>n :NERDTreeToggle<CR>
-	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+    set cmdheight=1
 
 " Lightline
-let g:lightline = { 'colorscheme': 'wombat', }
-set laststatus=2
-set noshowmode
+    let g:lightline={'colorscheme': 'wombat',}
+    set laststatus=2
+    set noshowmode
 
 " Colorscheme
     colorscheme spacegray
-    let g:spacegray_underline_search = 1
-    let g:spacegray_use_italics = 1
-    let g:spacegray_low_contrast = 0
+    let g:spacegray_underline_search=1
+    let g:spacegray_use_italics=1
+    let g:spacegray_low_contrast=0
+" Nnn configuration
+
+    let g:nnn#set_default_mappings = 0
+    nnoremap <leader>n :NnnPicker '%:p:h'<CR>
+    let g:nnn#layout={ 'left': '~20%' } " Opens it to the left
+    let g:nnn#command = 'nnn -e'
+    let g:nnn#action = {
+      \ '<c-t>': 'tab split',
+      \ '<c-x>': 'split',
+      \ '<c-v>': 'vsplit' }
 
 call plug#begin('~/.config/nvim/plugged')
-    Plug 'preservim/nerdtree'
+    Plug 'mcchrish/nnn.vim'
     Plug 'junegunn/goyo.vim'
 	Plug 'jeffkreeftmeijer/vim-numbertoggle'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
