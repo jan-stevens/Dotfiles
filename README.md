@@ -64,7 +64,7 @@ Alternatively use:
 ## Preview
 ![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_2.png)
 
-** Nvim configuration **| ** i3 configuration **
+**Nvim configuration**| **i3 configuration**
 ----- | -----
 ![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_1.png) | ![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_3.png)
 
