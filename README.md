@@ -44,7 +44,8 @@
 + **email client**: Mailspring
 + **Compositor**: Compton-tryone-git (Enables kawase blur)
 + **Window manager**: i3 gaps rounded
-+ **Display manager**: [lightdm-mini-greeter](https://github.com/prikhi/lightdm-mini-greeter) / [mantablockscreen](https://github.com/reorr/mantablockscreen)
++ **Lockscreen:  [mantablockscreen](https://github.com/reorr/mantablockscreen)
++ **Display manager**: [lightdm-mini-greeter](https://github.com/prikhi/lightdm-mini-greeter)
 
 ## Install
 Clone (using `git`) this repo manually into the home directory:
