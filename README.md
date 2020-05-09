@@ -64,11 +64,11 @@ Alternatively use:
     stow *
 
 ## Preview
-![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_1.png)
+![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_2.png)
 
-** c | d **
+** Nvim configuration **| ** i3 configuration **
 ----- | -----
-![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_2.png) | ![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_3.png)
+![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_1.png) | ![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_3.png)
 
 ## Feedback
 Suggestions/improvements are [welcome](https://github.com/biogen98/Dotfiles/issues)!
