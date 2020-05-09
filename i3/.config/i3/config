@@ -124,10 +124,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -199,7 +199,7 @@ gaps outer 15
 #border_radius 15
 
 #My own keybindings
-bindsym Print exec --no-startup-id flameshot gui
+bindsym Print exec --no-startup-id kazam
 bindsym $mod+t exec --no-startup-id kitty htop & kitty gotop
 bindsym $mod+Shift+m exec --no-startup-id kitty micro
 bindsym $mod+m exec --no-startup-id kitty ranger
