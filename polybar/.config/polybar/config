@@ -18,7 +18,7 @@ primary = #F48AA3
 secondary = #00FFAB
 alert = #bd2c40
 fill1 = #C7B55A
-fill2 = #ff4971
+fill2 = #D75F5F
 
 [bar/bottom]
 monitor = ${env:MONITOR:eDP1}
@@ -62,13 +62,13 @@ font-6 = "Font Awesome 5 Free Solid:pixelsize=23;4"
 
 
 modules-left = i3 spotify
-modules-center = xbacklight time pulseaudio 
+modules-center = xbacklight time pulseaudio
 modules-right =  network filesystem battery powermenu
 
 cursor-click = pointer
 cursor-scroll = ns-resize
 
-separator = 
+separator =
 
 [module/xwindow]
 type = internal/xwindow

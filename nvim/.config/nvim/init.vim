@@ -1,6 +1,8 @@
 let mapleader=" "
 
 " __Standard Bindings__
+"
+
 
 " Basic file system commands
     nnoremap <C-t> :!touch<Space>
@@ -14,9 +16,12 @@ let mapleader=" "
     map <C-j> <C-w>j
     map <C-k> <C-w>k
     map <C-l> <C-w>l
+
 " Enable and disable auto comment
     map <leader>c : setlocal formatoptions-=cro<CR>
     map <leader>C : setlocal formatoptions=cro<CR>
+    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
 " Alias replace all to S
     nnoremap S :%s//gI<Left><Left><Left>
 
@@ -91,7 +96,7 @@ let mapleader=" "
     set splitbelow splitright
 
 " Give more space for displaying messages.
-    set cmdheight=1
+    set cmdheight=2
 
 " Lightline
     let g:lightline={'colorscheme': 'wombat',}
@@ -103,19 +108,22 @@ let mapleader=" "
     let g:spacegray_underline_search=1
     let g:spacegray_use_italics=1
     let g:spacegray_low_contrast=0
-" Nnn configuration
 
-    let g:nnn#set_default_mappings = 0
-    nnoremap <leader>n :NnnPicker '%:p:h'<CR>
-    let g:nnn#layout={ 'left': '~20%' } " Opens it to the left
-    let g:nnn#command = 'nnn -e'
-    let g:nnn#action = {
-      \ '<c-t>': 'tab split',
-      \ '<c-x>': 'split',
-      \ '<c-v>': 'vsplit' }
+" Nerdtree configuration
+    map <leader>n :NERDTreeToggle<CR>
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+    let NERDTreeMinimalUI = 1
+    let NERDTreeDirArrows = 1
+
+" Ctrlp
+    let g:ctrlp_user_command = 'find %s -type f'
+    let g:ctrlp_map='<c-p>'
+    let g:ctrlp_working_path_mode = 'ra'
 
 call plug#begin('~/.config/nvim/plugged')
-    Plug 'mcchrish/nnn.vim'
+    Plug 'preservim/nerdtree'
     Plug 'junegunn/goyo.vim'
 	Plug 'jeffkreeftmeijer/vim-numbertoggle'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -124,4 +132,5 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tomtom/tcomment_vim'
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'easymotion/vim-easymotion'
+    Plug 'sheerun/vim-polyglot'
 call plug#end()
