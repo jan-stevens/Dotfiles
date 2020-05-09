@@ -64,9 +64,8 @@ Alternatively use:
     stow *
 
 ## Preview
-![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_1.png)
-![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_2.png)
-![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_3.png)
-![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_4.png)
+![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_1.png) | ![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_2.png)
+![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_4.png) | ![Screenshot](https://github.com/biogen98/Dotfiles/blob/master/screenshots/Screenshot_5.png)
+
 ## Feedback
 Suggestions/improvements are [welcome](https://github.com/biogen98/Dotfiles/issues)!

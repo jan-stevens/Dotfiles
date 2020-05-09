@@ -1,8 +1,17 @@
+"==========================================================================
+"==========================================================================
+"===                        (_)                                         ===
+"===                 __   __ _  _ __ ___   _ __  ___                    ===
+"===                 \ \ / /| || '_ ` _ \ | '__|/ __|                   ===
+"===                  \ V / | || | | | | || |  | (__                    ===
+"===                  \_/  |_||_| |_| |_||_|   \___|                    ===
+"===                                                                    ===
+"==========================================================================
+"==========================================================================
+
 let mapleader=" "
 
 " __Standard Bindings__
-"
-
 
 " Basic file system commands
     nnoremap <C-t> :!touch<Space>
@@ -43,25 +52,25 @@ let mapleader=" "
 	map <leader>o :setlocal spell! spelllang=en_us<CR>
 
 " Basic settings
-    set termguicolors
     set encoding=utf-8
     set number relativenumber
     set noerrorbells
     set linebreak
     set showbreak=+++
     set nobackup
-    set showmatch
     set noswapfile
-    set hlsearch
     set smartcase
-    set ignorecase
-    set incsearch
     set autoindent
     set smartindent
-    set smarttab
     set smartcase
     set undolevels=1000
     set backspace=indent,eol,start
+    set showmatch
+
+" Set search options
+    set ignorecase
+    set hlsearch
+    set incsearch
 
 " Set clipboard
     set clipboard=unnamedplus
@@ -71,6 +80,7 @@ let mapleader=" "
     set colorcolumn=80
 
 " Tab Settings
+    set smarttab
     set expandtab
     set shiftwidth=4
     set softtabstop=4
@@ -104,6 +114,7 @@ let mapleader=" "
     set noshowmode
 
 " Colorscheme
+    set termguicolors
     colorscheme spacegray
     let g:spacegray_underline_search=1
     let g:spacegray_use_italics=1
@@ -121,6 +132,20 @@ let mapleader=" "
     let g:ctrlp_user_command = 'find %s -type f'
     let g:ctrlp_map='<c-p>'
     let g:ctrlp_working_path_mode = 'ra'
+
+" Easymotion configuration
+    let g:EasyMotion_smartcase = 1
+    " <Leader>f{char} to move to {char}
+    map  <Leader><Leader>f <Plug>(easymotion-bd-f)
+    nmap <Leader><Leader>f <Plug>(easymotion-overwin-f)
+    " s{char}{char} to move to {char}{char}
+    nmap s <Plug>(easymotion-overwin-f2)
+    " Move to line
+    map <Leader><Leader>l  <Plug>(easymotion-bd-jk)
+    nmap <Leader><Leader>l <Plug>(easymotion-overwin-line)
+    " Move to word
+    map  <Leader><Leader>w <Plug>(easymotion-bd-w)
+    nmap <Leader><Leader>w <Plug>(easymotion-overwin-w)
 
 call plug#begin('~/.config/nvim/plugged')
     Plug 'preservim/nerdtree'
