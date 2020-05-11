@@ -1,12 +1,12 @@
-##############################################################
-##############################################################
-##  __  ____  _  _  _  _     ___  __   __ _  ____  __  ___  ##
-## (  )( __ \/ )( \( \/ )   / __)/  \ (  ( \(  __)(  )/ __) ##
-##  )(  (__ (\ /\ // \/ \  ( (__(  O )/    / ) _)  )(( (_ \ ##
-## (__)(____/(_/\_)\_)(_/   \___)\__/ \_)__)(__)  (__)\___/ ##
-##                                                          ##
-##############################################################
-##############################################################
+################################################################
+################################################################
+##   __  ____  _  _  _  _     ___  __   __ _  ____  __  ___   ##
+##  (  )( __ \/ )( \( \/ )   / __)/  \ (  ( \(  __)(  )/ __)  ##
+##   )(  (__ (\ /\ // \/ \  ( (__(  O )/    / ) _)  )(( (_ \  ##
+##  (__)(____/(_/\_)\_)(_/   \___)\__/ \_)__)(__)  (__)\___/  ##
+##                                                            ##
+################################################################
+################################################################
 
 # Set modkey
 set $mod Mod4
@@ -178,7 +178,7 @@ bindsym XF86LaunchB exec --no-startup-id blueman-manager
 bindsym XF86LaunchA exec --no-startup-id pavucontrol
 
 # My exec commands
-exec_always --no-startup-id compton --dbus
+exec_always --no-startup-id picom --dbus
 exec_always --no-startup-id sleep 0.8 && feh --bg-scale ~/Pictures/Wallpapers/manuel-cosentino-n--CMLApjfI-unsplash.jpg
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id dunst
@@ -192,11 +192,10 @@ exec --no-startup-id libinput-gestures-setup start
 exec --no-startup-id megasync
 
 #i3-gaps config
-for_window [class=".*"] border pixel0
-#smart_borders on
+for_window [class=".*"] border pixel 0
+# smart_borders on
 gaps inner 10
 gaps outer 15
-#border_radius 15
 
 #My own keybindings
 bindsym Print exec --no-startup-id kazam
