@@ -36,14 +36,14 @@
 + **Iosevka**
 
 ## Some recommended applications
-+ **Terminals**: Kitty / urxvt
-+ **File managers**: Nnn / Thunar / Nemo
++ **Terminals**: Kitty
++ **File managers**: Nnn / Nemo
 + **Launchers**: Rofi / dmenu
 + **Browsers**: Brave / Chromium
-+ **Editors**: Sublime Text / Micro / Atom / Nvim
++ **Editors**: Sublime Text / Atom / Nvim
 + **Music players**: Spotify
 + **email client**: Mailspring
-+ **Compositor**: Compton-tryone-git (Enables kawase blur)
++ **Compositor**: picom-tryone-git (Enables kawase blur)
 + **Window manager**: i3-gaps-rounded
 + **Lockscreen**: [mantablockscreen](https://github.com/reorr/mantablockscreen)
 + **Display manager**: [lightdm-mini-greeter](https://github.com/prikhi/lightdm-mini-greeter)
