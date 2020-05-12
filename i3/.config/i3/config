@@ -206,6 +206,7 @@ bindsym $mod+Shift+n exec --no-startup-id fromscratch
 bindsym $mod+Shift+c exec --no-startup-id brave
 bindsym $mod+Shift+x exec --no-startup-id mantablockscreen -cc
 bindsym $mod+Shift+t exec --no-startup-id tomate-gtk
+bindsym $mod+Shift+v exec --no-startup-id kitty nvim
 
 # System bindings with scripts
 bindsym $mod+Shift+q exec --no-startup-id ~/Programs/Scripts/bluetooth_sony2

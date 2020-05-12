@@ -203,9 +203,10 @@ let mapleader=" "
                 \ ]
 
 " __LatexLivePreview__
-    let g:livepreview_engine = 'pdflatex'
+    let g:livepreview_engine = 'zathura'
     autocmd BufRead,BufNewFile *.tex set filetype=tex
     let g:livepreview_cursorhold_recompile = 0
+    let g:livepreview_engine = 'pdflatex'
     " key mappings for latex
         augroup filetype_latex
           autocmd!
@@ -213,13 +214,20 @@ let mapleader=" "
         augroup END
 
 " __MarkdownLivePreview__
-    autocmd BufRead,BufNewFile *.md set filetype=pdf
+    autocmd BufRead,BufNewFile *.md set filetype=markdown
     " key mappings for markdown
         augroup filetype_markdown
           autocmd!
           autocmd BufRead *.md nnoremap <buffer> <leader>c : MarkdownPreview<CR>
         augroup END
 
+" __RunPythonCode__
+    autocmd BufRead,BufNewFile *.py set filetype=python
+    " key mappings for python excecution
+        augroup filetype_python
+            autocmd!
+            autocmd BufRead *.py nnoremap <buffer> <leader>c : w<CR>:!python %<CR>
+        augroup END
 " __Plug__
 call plug#begin('~/.config/nvim/plugged')
     Plug 'lilydjwg/colorizer'
@@ -237,4 +245,5 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'ryanoasis/vim-devicons'
     Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+    Plug 'vimlab/split-term.vim'
 call plug#end()
