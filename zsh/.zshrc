@@ -1,8 +1,9 @@
-#  ____  ____  _  _  ____   ___ 
+# ===========================================================
+#  ____  ____  _  _  ____   ___
 # (__  )/ ___)/ )( \(  _ \ / __)
-#  / _/ \___ \) __ ( )   /( (__ 
+#  / _/ \___ \) __ ( )   /( (__
 # (____)(____/\_)(_/(__\_) \___)
-
+#
 # ===========================================================
 
 
@@ -17,14 +18,8 @@ export ZSH="/home/jan/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
-#ZSH_THEME="powerlevel10k/powerlevel10k"
-#ZSH_THEME="spaceship"
-#ZSH_THEME="pi"
 ZSH_THEME="oxide"
-#ZSH_THEME="nox"
-#ZSH_THEME="bureau"
-#ZSH_THEME="bullet-train"
-
+# ZSH_THEME="spaceship"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -83,7 +78,7 @@ ZSH_THEME="oxide"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -114,6 +109,7 @@ source $ZSH/oh-my-zsh.sh
  alias goDNA='/home/jan/Documents/oxDNA/build/bin/oxDNA'
  alias gocogli1='/home/jan/Documents/cogli1/build/bin/cogli1'
  alias n='nnn'
+ alias la='ls -A'
  alias vim='nvim'
  alias display='arandr'
  alias sound='pavucontrol'
@@ -130,10 +126,12 @@ source $ZSH/oh-my-zsh.sh
  alias keybindings='cat ~/.config/keybindings.txt'
  alias search="fzf"
  alias weather="clear && curl v2.wttr.in/leuven"
- alias i3conf="micro ~/.config/i3/config"
+ alias i3conf="nvim ~/.config/i3/config"
  alias bat='upower -i /org/freedesktop/UPower/devices/keyboard_hid_dco2co26ocdo37o75_battery | grep -E "state|to\ full|percentage"'
  alias printer='system-config-printer'
  alias lmp='~/lammps-7Aug19/src/lmp_serial'
+ alias v='nvim'
+ alias vim='nvim'
 
 # Bash insulter
 if [ -f /etc/bash.command-not-found ]; then
@@ -141,18 +139,22 @@ if [ -f /etc/bash.command-not-found ]; then
 fi
 
 # nnn configuration
-export NNN_USE_EDITOR=1
 export TERMINAL="kitty"
 export BROWSER="brave"
 export READER="mupdf"
 export PIX="feh"
 export ZIP="unzip"
-export EDITOR="/usr/bin/micro"
+export EDITOR="nvim"
 
-#A nice logo when launching terminal
+# Nice logo when launching terminal
 #linux_logo -a -f -L 7
-#pfetch
 ufetch
-#cpufetch
 
+# vi mode
+bindkey -v
 
+# Use vim keys in tab completion
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
