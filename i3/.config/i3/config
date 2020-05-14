@@ -198,7 +198,7 @@ gaps inner 10
 gaps outer 15
 
 #My own keybindings
-bindsym Print exec --no-startup-id kazam
+bindsym Print exec --no-startup-id flameshot gui
 bindsym $mod+t exec --no-startup-id kitty htop & kitty gotop
 bindsym $mod+Shift+m exec --no-startup-id kitty micro
 bindsym $mod+m exec --no-startup-id kitty ranger
