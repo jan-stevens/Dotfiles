@@ -16,7 +16,8 @@ let mapleader=" "
 
 " Remove trailing whitespace on save
     autocmd BufWritePre * %s/\s\+$//e
-
+" Configuring sudo write
+    cnoremap w!! execute 'silent! write !SUDO_ASKPASS=`which ssh-askpass` sudo tee % >/dev/null' <bar> edit!
 " Shortcutting split navigation
     map <C-h> <C-w>h
     map <C-j> <C-w>j
@@ -192,22 +193,17 @@ let mapleader=" "
                 \ '     \/__/    \/_/\/_/\/_/\/_/   ',
                 \ ]
 
-" " __LatexLivePreview__
-"     let g:livepreview_engine = 'zathura'
-"     autocmd BufRead,BufNewFile *.tex set filetype=tex
-"     let g:livepreview_cursorhold_recompile = 0
-"     let g:livepreview_engine = 'pdflatex'
-"     " key mappings for latex
-"         augroup filetype_latex
-"             autocmd!
-"             autocmd BufRead *.tex nnoremap <buffer> <leader>c : LLPStartPreview<CR>
-"         augroup END
 " __Vimtex__
     let g:tex_flavor = 'lualatex'
     let g:vimtex_compiler_progname = 'nvr'
-    " settings for sumatraPDF
+    " settings for zathura
         let g:vimtex_view_general_viewer = 'zathura'
-        let g:vimtex_view_general_options_latexmk = '-pdf'
+    " key mappings for latex
+        augroup filetype_latex
+            autocmd!
+            autocmd BufRead *.tex nnoremap <buffer> <leader>c : VimtexCompile<CR>
+            autocmd BufNewFile,BufRead *.tex   set syntax=tex
+        augroup END
 
 " __MarkdownLivePreview__
     autocmd BufRead,BufNewFile *.md set filetype=markdown
@@ -224,6 +220,16 @@ let mapleader=" "
             autocmd!
             autocmd BufRead *.py nnoremap <buffer> <leader>c : w<CR>:!python %<CR>
         augroup END
+" __Floaterm__
+    " __Bottom Terminal__
+        nnoremap   <silent>   t <C-\><C-n>:FloatermNew<CR>
+        let g:floaterm_wintype = "normal"
+        let g:floaterm_position = "bottom"
+        let g:floaterm_wintitle = "Terminal"
+        let g:floaterm_height = 0.2
+        let g:floaterm_shell = "bash"
+
+
 
 " __COC__
     " TextEdit might fail if hidden is not set.
@@ -337,7 +343,6 @@ let mapleader=" "
 " __Plug__
 call plug#begin('~/.config/nvim/plugged')
     Plug 'lilydjwg/colorizer'
-    Plug 'vimlab/split-term.vim'
     Plug 'mhinz/vim-startify'
     Plug 'junegunn/limelight.vim'
     Plug 'preservim/nerdtree'
@@ -350,9 +355,9 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'easymotion/vim-easymotion'
     Plug 'sheerun/vim-polyglot'
     Plug 'ryanoasis/vim-devicons'
-    " Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
     Plug 'Vimjas/vim-python-pep8-indent'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'lervag/vimtex'
+    Plug 'voldikss/vim-floaterm'
 call plug#end()
