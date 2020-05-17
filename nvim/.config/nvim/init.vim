@@ -17,7 +17,8 @@ let mapleader=" "
 " Remove trailing whitespace on save
     autocmd BufWritePre * %s/\s\+$//e
 " Configuring sudo write
-    cnoremap w!! execute 'silent! write !SUDO_ASKPASS=`which ssh-askpass` sudo tee % >/dev/null' <bar> edit!
+    " cnoremap w!! execute 'silent! write !SUDO_ASKPASS=`which ssh-askpass` sudo tee % >/dev/null' <bar> edit!
+
 " Shortcutting split navigation
     map <C-h> <C-w>h
     map <C-j> <C-w>j
@@ -39,9 +40,6 @@ let mapleader=" "
     set spelllang=en_us,nl
     map <leader>en : setlocal spell! spelllang=en_gb<CR>
     map <leader>du : setlocal spell! spelllang=nl<CR>
-
-" Terminal configuration
-    tnoremap <Esc> <C-\><C-n>:q!<CR>
 
 " Window resizing mappings /*{{{*/
     nnoremap <Up> :resize +2<CR>
@@ -201,9 +199,12 @@ let mapleader=" "
     " key mappings for latex
         augroup filetype_latex
             autocmd!
-            autocmd BufRead *.tex nnoremap <buffer> <leader>c : VimtexCompile<CR>
+            autocmd BufRead *.tex nnoremap <buffer> <leader>c: VimtexCompile<CR>
             autocmd BufNewFile,BufRead *.tex   set syntax=tex
         augroup END
+
+" __WriteGood__
+    nnoremap  <silent> \w :WritegoodToggle<CR>
 
 " __MarkdownLivePreview__
     autocmd BufRead,BufNewFile *.md set filetype=markdown
@@ -220,16 +221,65 @@ let mapleader=" "
             autocmd!
             autocmd BufRead *.py nnoremap <buffer> <leader>c : w<CR>:!python %<CR>
         augroup END
+
 " __Floaterm__
     " __Bottom Terminal__
-        nnoremap   <silent>   t <C-\><C-n>:FloatermNew<CR>
-        let g:floaterm_wintype = "normal"
-        let g:floaterm_position = "bottom"
-        let g:floaterm_wintitle = "Terminal"
-        let g:floaterm_height = 0.2
-        let g:floaterm_shell = "bash"
+        nnoremap   <silent>  \t <C-\><C-n>:FloatermNew --wintype=normal --position=bottom --height=0.2 --shell=bash<CR>
+        nnoremap   <silent>  \g <C-\><C-n>:FloatermNew --wintype=floating --position=center --width=0.5 --height=0.5 --autoclose=2 lazygit <CR>
+    " Terminal configuration
+        tnoremap <Esc> <C-\><C-n>:q!<CR>
 
+" __FZF__
+    " Map shortcuts
+        nnoremap   <silent> \f :Files<CR>
+         nnoremap   <silent> \r :Rg<CR>
 
+    let g:fzf_action = {
+      \ 'ctrl-t': 'tab split',
+      \ 'ctrl-h': 'split',
+      \ 'ctrl-v': 'vsplit' }
+
+    "Get Files
+        command! -bang -nargs=? -complete=dir Files
+        \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
+
+    " Get text in files with Rg
+        command! -bang -nargs=* Rg
+         \ call fzf#vim#grep(
+         \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+         \   fzf#vim#with_preview(), <bang>0)
+
+    " Border color
+        let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'border': 'sharp' } }
+
+    " Ripgrep advanced
+        function! RipgrepFzf(query, fullscreen)
+          let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
+          let initial_command = printf(command_fmt, shellescape(a:query))
+          let reload_command = printf(command_fmt, '{q}')
+          let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+          call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+        endfunction
+
+    let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
+    let $FZF_DEFAULT_COMMAND="rg --files --hidden"
+    command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+
+    " Customize fzf colors to match your color scheme
+        let g:fzf_colors =
+          \ { 'fg':      ['fg', 'Normal'],
+          \ 'bg':      ['bg', 'Normal'],
+          \ 'hl':      ['fg', 'Comment'],
+          \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+          \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+          \ 'hl+':     ['fg', 'Statement'],
+          \ 'info':    ['fg', 'PreProc'],
+          \ 'border':  ['fg', 'Ignore'],
+          \ 'prompt':  ['fg', 'Conditional'],
+          \ 'pointer': ['fg', 'Exception'],
+          \ 'marker':  ['fg', 'Keyword'],
+          \ 'spinner': ['fg', 'Label'],
+          \ 'header':  ['fg', 'Comment'] }
 
 " __COC__
     " TextEdit might fail if hidden is not set.
@@ -342,22 +392,37 @@ let mapleader=" "
 
 " __Plug__
 call plug#begin('~/.config/nvim/plugged')
-    Plug 'lilydjwg/colorizer'
+    " Startup screen
     Plug 'mhinz/vim-startify'
-    Plug 'junegunn/limelight.vim'
+    " File manager
     Plug 'preservim/nerdtree'
-    Plug 'junegunn/goyo.vim'
-    Plug 'jeffkreeftmeijer/vim-numbertoggle'
-    Plug 'itchyny/lightline.vim'
-    Plug 'jiangmiao/auto-pairs'
-    Plug 'tomtom/tcomment_vim'
-    Plug 'ctrlpvim/ctrlp.vim'
+    " Motion
     Plug 'easymotion/vim-easymotion'
-    Plug 'sheerun/vim-polyglot'
+    " Terminal
+    Plug 'voldikss/vim-floaterm'
+   " Easthetic changes
+    Plug 'jeffkreeftmeijer/vim-numbertoggle'
     Plug 'ryanoasis/vim-devicons'
-    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+   " Automated typing
+    Plug 'tomtom/tcomment_vim'
+    Plug 'jiangmiao/auto-pairs'
     Plug 'Vimjas/vim-python-pep8-indent'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " Status bar
+    Plug 'itchyny/lightline.vim'
+    " Distraction free mode
+    Plug 'junegunn/limelight.vim'
+    Plug 'junegunn/goyo.vim'
+    " Document compilation(.tex and .md)
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
     Plug 'lervag/vimtex'
-    Plug 'voldikss/vim-floaterm'
+    " Syntax highlight
+    Plug 'sheerun/vim-polyglot'
+    Plug 'lilydjwg/colorizer'
+    " Searching
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+    Plug 'airblade/vim-rooter'
+    Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'davidbeckingsale/writegood.vim'
 call plug#end()
