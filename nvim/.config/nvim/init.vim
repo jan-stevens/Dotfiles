@@ -197,14 +197,20 @@ let mapleader=" "
     " settings for zathura
         let g:vimtex_view_general_viewer = 'zathura'
     " key mappings for latex
+        let g:vimtex_mappings_enabled = 0
+        nnoremap <silent> ;lt : VimtexTocToggle<CR>
+        nnoremap <silent> ;lv : VimtexView<CR>
+        nnoremap <silent> ;lw : VimtexCountWords<CR>
+        nnoremap <silent> ;le : VimtexErrors<CR>
+        nnoremap <silent> ;lc : VimtexClean<CR>
+
         augroup filetype_latex
             autocmd!
-            autocmd BufRead *.tex nnoremap <buffer> <leader>c: VimtexCompile<CR>
-            autocmd BufNewFile,BufRead *.tex   set syntax=tex
+            autocmd BufRead *.tex nnoremap <buffer> <leader>c : VimtexCompile<CR>: VimtexClean<CR>
         augroup END
 
 " __WriteGood__
-    nnoremap  <silent> \w :WritegoodToggle<CR>
+    nnoremap  <silent> ;w :WritegoodToggle<CR>
 
 " __MarkdownLivePreview__
     autocmd BufRead,BufNewFile *.md set filetype=markdown
@@ -224,15 +230,15 @@ let mapleader=" "
 
 " __Floaterm__
     " __Bottom Terminal__
-        nnoremap   <silent>  \t <C-\><C-n>:FloatermNew --wintype=normal --position=bottom --height=0.2 --shell=bash<CR>
-        nnoremap   <silent>  \g <C-\><C-n>:FloatermNew --wintype=floating --position=center --width=0.5 --height=0.5 --autoclose=2 lazygit <CR>
+        nnoremap   <silent>  ;t <C-\><C-n>:FloatermNew --wintype=normal --position=bottom --height=0.2 --shell=bash<CR>
+        nnoremap   <silent>  ;g <C-\><C-n>:FloatermNew --wintype=floating --position=center --width=0.5 --height=0.5 --autoclose=2 lazygit <CR>
     " Terminal configuration
         tnoremap <Esc> <C-\><C-n>:q!<CR>
 
 " __FZF__
     " Map shortcuts
-        nnoremap   <silent> \f :Files<CR>
-         nnoremap   <silent> \r :Rg<CR>
+        nnoremap   <silent> ;f :Files<CR>
+         nnoremap   <silent> ;r :Rg<CR>
 
     let g:fzf_action = {
       \ 'ctrl-t': 'tab split',
