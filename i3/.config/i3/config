@@ -39,6 +39,7 @@ bindsym $mod+l focus right
 bindsym $mod+Left workspace prev
 bindsym $mod+Right workspace next
 bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
 
 # move focused window
 bindsym $mod+Shift+j move down
@@ -67,8 +68,8 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # i3-gaps keybindings
-bindsym $mod+Shift+f	gaps inner current set 0; gaps outer current set 0
-bindsym $mod+Shift+d	gaps inner current set 15; gaps outer current set 15
+bindsym $mod+Shift+f	gaps inner current set 0; gaps outer current set 0; exec killall polybar
+bindsym $mod+Shift+d	gaps inner current set 15; gaps outer current set 15; exec ~/.config/polybar/launch.sh
 bindsym $mod+Shift+y	resize shrink width 10px or 10 ppt
 bindsym $mod+Shift+i	resize shrink height 10px or 10 ppt
 bindsym $mod+Shift+u	resize grow width 10px or 10 ppt
