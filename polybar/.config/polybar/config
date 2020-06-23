@@ -51,15 +51,14 @@ padding-bottom = 0
 
 module-margin-left = 1
 module-margin-right = 2
-
 font-0 = "jetBrains Mono:pixelsize=22;4"
-font-1 = "Iosevka Nerd Font:pixelsize=38;8"
-font-2 = "Font Awesome 5 Free Solid:pixelsize=22;4"
+font-1 = "Iosevka:pixelsize=38;8"
+font-2 = "Font Awesome 5 Free:style=Solid:pixelsize=22;4"
 font-3 = "Font Awesome 5 Free Solid:pixelsize=26;5"
 font-4 = "Font Awesome 5 Free Solid:pixelsize=31;5"
 font-5 = "Font Awesome 5 Free Solid:pixelsize=12;3"
 font-6 = "Font Awesome 5 Free Solid:pixelsize=23;4"
-
+; If font does not show try: fc-list
 
 modules-left = i3 spotify
 modules-center = xbacklight time pulseaudio
@@ -160,6 +159,7 @@ bar-indicator = %{T7}
 bar-indicator-foreground = ${colors.fill2}
 bar-indicator-font = 2
 bar-fill = ─
+; ─
 bar-fill-font = 2
 bar-fill-foreground = ${colors.foreground}
 bar-empty = ─
