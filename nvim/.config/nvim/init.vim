@@ -16,14 +16,12 @@ let mapleader=" "
 
 " Remove trailing whitespace on save
     autocmd BufWritePre * %s/\s\+$//e
-" Configuring sudo write
-    " cnoremap w!! execute 'silent! write !SUDO_ASKPASS=`which ssh-askpass` sudo tee % >/dev/null' <bar> edit!
 
-" Shortcutting split navigation
-    map <C-h> <C-w>h
-    map <C-j> <C-w>j
-    map <C-k> <C-w>k
-    map <C-l> <C-w>l
+    " Shortcutting split navigation
+        map <C-h> <C-w>h
+        map <C-j> <C-w>j
+        map <C-k> <C-w>k
+        map <C-l> <C-w>l
 
 " Alias replace all to S
     nnoremap S :%s//gI<Left><Left><Left>
@@ -37,7 +35,7 @@ let mapleader=" "
     nnoremap <leader>w :w<CR>
 
 " Spell-check set to <leader>s, 's' for 'orthography':
-    set spelllang=en_us,nl
+    set spelllang=en_gb,nl
     map <leader>en : setlocal spell! spelllang=en_gb<CR>
     map <leader>du : setlocal spell! spelllang=nl<CR>
 
@@ -62,6 +60,7 @@ let mapleader=" "
     set backspace=indent,eol,start
     set showmatch
     set hidden
+    filetype plugin on
 
 " Set search options
     set ignorecase
@@ -128,23 +127,14 @@ let mapleader=" "
     let g:NERDTreeWinPos = "right"
 
 " __Ctrlp__
-    let g:ctrlp_user_command = 'find %s -type f'
-    let g:ctrlp_map='<c-p>'
-    let g:ctrlp_working_path_mode = 'ra'
+    " let g:ctrlp_user_command = 'find %s -type f'
+    " let g:ctrlp_map='<c-p>'
+    " let g:ctrlp_working_path_mode = 'ra'
 
 " __Easymotion__
     let g:EasyMotion_smartcase = 1
-    " <Leader>f{char} to move to {char}
-        " map  <Leader><Leader>f <Plug>(easymotion-bd-f)
-        " nmap <Leader><Leader>f <Plug>(easymotion-overwin-f)
-    " s{char}{char} to move to {char}{char}
-        nmap s <Plug>(easymotion-overwin-f2)
-    " Move to line
-        " map <Leader><Leader>l  <Plug>(easymotion-bd-jk)
-        " nmap <Leader><Leader>l <Plug>(easymotion-overwin-line)
-    " Move to word
-        " map  <Leader><Leader>w <Plug>(easymotion-bd-w)
-        " nmap <Leader><Leader>w <Plug>(easymotion-overwin-w)
+    " nnoremap <silent> <leader> k <Plug>(easymotion-overwin-f2)
+    nmap s <Plug>(easymotion-overwin-f2)
 
 " __Limelight__
     autocmd! User GoyoEnter Limelight
@@ -191,27 +181,27 @@ let mapleader=" "
                 \ '     \/__/    \/_/\/_/\/_/\/_/   ',
                 \ ]
 
-" " __Vimtex__
-"     let g:tex_flavor = 'lualatex'
-"     let g:vimtex_compiler_progname = 'nvr'
-"     " settings for zathura
-"         let g:vimtex_view_general_viewer = 'zathura'
-"     " key mappings for latex
-"         let g:vimtex_mappings_enabled = 0
-"         nnoremap <silent> ;lt : VimtexTocToggle<CR>
-"         nnoremap <silent> ;lv : VimtexView<CR>
-"         nnoremap <silent> ;lw : VimtexCountWords<CR>
-"         nnoremap <silent> ;le : VimtexErrors<CR>
-"         nnoremap <silent> ;lc : VimtexClean<CR>
-"
-"         augroup filetype_latex
-"             autocmd!
-"             autocmd BufRead *.tex nnoremap <buffer> <leader>c : VimtexCompile<CR>: VimtexClean<CR>
-"         augroup END
-"
-" " __WriteGood__
-"     nnoremap  <silent> ;w :WritegoodToggle<CR>
-"
+" __Vimtex__
+    let g:tex_flavor = 'lualatex'
+    let g:vimtex_compiler_progname = 'nvr'
+    " settings for zathura
+        let g:vimtex_view_general_viewer = 'zathura'
+    " key mappings for latex
+        let g:vimtex_mappings_enabled = 0
+        nnoremap <silent> ;lt : VimtexTocToggle<CR>
+        nnoremap <silent> ;lv : VimtexView<CR>
+        nnoremap <silent> ;lw : VimtexCountWords<CR>
+        nnoremap <silent> ;le : VimtexErrors<CR>
+        nnoremap <silent> ;lc : VimtexClean<CR>
+
+        augroup filetype_latex
+            autocmd!
+            autocmd BufRead *.tex nnoremap <buffer> <leader>c : VimtexCompile<CR>: VimtexClean<CR>
+        augroup END
+
+" __WriteGood__
+    nnoremap  <silent> ;w :WritegoodToggle<CR>
+
 " __MarkdownLivePreview__
     autocmd BufRead,BufNewFile *.md set filetype=markdown
     " key mappings for markdown
@@ -228,208 +218,226 @@ let mapleader=" "
             autocmd BufRead *.py nnoremap <buffer> <leader>c : w<CR>:!python %<CR>
         augroup END
 
-" " __Floaterm__
-"     " __Bottom Terminal__
-"         nnoremap   <silent>  ;t <C-\><C-n>:FloatermNew --wintype=normal --position=bottom --height=0.2 --shell=bash<CR>
-"         nnoremap   <silent>  ;g <C-\><C-n>:FloatermNew --wintype=floating --position=center --width=0.5 --height=0.5 --autoclose=2 lazygit <CR>
-"     " Terminal configuration
-"         tnoremap <silent> <Esc> <C-\><C-n>:q!<CR>
+" __Floaterm__
+    " __Bottom Terminal__
+        nnoremap   <silent>  ;t :FloatermNew --wintype=normal --position=bottom --height=0.3 bash<CR>
+        tnoremap  <silent>  ;h <C-\><C-n>:FloatermToggle<CR>
+        nnoremap  <silent>  ;h :FloatermToggle<CR>
+        tnoremap  <silent>  <Esc> <C-\><C-n><CR>
+        tnoremap  <silent>  <leader><Esc> <C-\><C-n>:q<CR>
+" __FZF__
+    " Map shortcuts
+        nnoremap   <silent> ;f :Files<CR>
+        nnoremap   <silent> ;r :Rg<CR>
 
-" " __FZF__
-"     " Map shortcuts
-"         nnoremap   <silent> ;f :Files<CR>
-"         nnoremap   <silent> ;r :Rg<CR>
-"
-"     let g:fzf_action = {
-"       \ 'ctrl-t': 'tab split',
-"       \ 'ctrl-h': 'split',
-"       \ 'ctrl-v': 'vsplit' }
-"
-"     "Get Files
-"         command! -bang -nargs=? -complete=dir Files
-"         \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
-"
-"     " Get text in files with Rg
-"         command! -bang -nargs=* Rg
-"          \ call fzf#vim#grep(
-"          \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-"          \   fzf#vim#with_preview(), <bang>0)
-"
-"     " Border color
-"         let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'border': 'sharp' } }
-"
-"     " Ripgrep advanced
-    "     function! RipgrepFzf(query, fullscreen)
-    "       let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
-    "       let initial_command = printf(command_fmt, shellescape(a:query))
-    "       let reload_command = printf(command_fmt, '{q}')
-    "       let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-    "       call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
-    "     endfunction
-    "
-    " let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
-    " let $FZF_DEFAULT_COMMAND="rg --files --hidden"
-    " command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
-    "
-    " " Customize fzf colors to match your color scheme
-    "     let g:fzf_colors =
-    "       \ { 'fg':      ['fg', 'Normal'],
-    "       \ 'bg':      ['bg', 'Normal'],
-    "       \ 'hl':      ['fg', 'Comment'],
-    "       \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-    "       \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-    "       \ 'hl+':     ['fg', 'Statement'],
-    "       \ 'info':    ['fg', 'PreProc'],
-    "       \ 'border':  ['fg', 'Ignore'],
-    "       \ 'prompt':  ['fg', 'Conditional'],
-    "       \ 'pointer': ['fg', 'Exception'],
-    "       \ 'marker':  ['fg', 'Keyword'],
-    "       \ 'spinner': ['fg', 'Label'],
-          " \ 'header':  ['fg', 'Comment'] }
+    let g:fzf_action = {
+      \ 'ctrl-t': 'tab split',
+      \ 'ctrl-h': 'split',
+      \ 'ctrl-v': 'vsplit' }
+
+    "Get Files
+        command! -bang -nargs=? -complete=dir Files
+        \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
+
+    " Get text in files with Rg
+        command! -bang -nargs=* Rg
+         \ call fzf#vim#grep(
+         \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+         \   fzf#vim#with_preview(), <bang>0)
+
+    " Border color
+        let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'border': 'sharp' } }
+
+    " Ripgrep advanced
+        function! RipgrepFzf(query, fullscreen)
+          let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
+          let initial_command = printf(command_fmt, shellescape(a:query))
+          let reload_command = printf(command_fmt, '{q}')
+          let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+          call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+        endfunction
+
+    let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
+    let $FZF_DEFAULT_COMMAND="rg --files --hidden"
+    command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+
+    " Customize fzf colors to match your color scheme
+        let g:fzf_colors =
+          \ { 'fg':      ['fg', 'Normal'],
+          \ 'bg':      ['bg', 'Normal'],
+          \ 'hl':      ['fg', 'Comment'],
+          \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+          \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+          \ 'hl+':     ['fg', 'Statement'],
+          \ 'info':    ['fg', 'PreProc'],
+          \ 'border':  ['fg', 'Ignore'],
+          \ 'prompt':  ['fg', 'Conditional'],
+          \ 'pointer': ['fg', 'Exception'],
+          \ 'marker':  ['fg', 'Keyword'],
+          \ 'spinner': ['fg', 'Label'],
+          \ 'header':  ['fg', 'Comment'] }
 
 " __COC__
     " TextEdit might fail if hidden is not set.
-    set hidden
+        set hidden
 
     " Some servers have issues with backup files, see #649.
-    set nobackup
-    set nowritebackup
+        set nobackup
+        set nowritebackup
 
     " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
     " delays and poor user experience.
-    set updatetime=100
+        set updatetime=100
 
     " Don't pass messages to |ins-completion-menu|.
-    set shortmess+=c
+        set shortmess+=c
 
     " Always show the signcolumn, otherwise it would shift the text each time
     " diagnostics appear/become resolved.
-    set signcolumn=yes
+        set signcolumn=yes
 
     " Use tab for trigger completion with characters ahead and navigate.
     " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
     " other plugin before putting this into your config.
-    inoremap <silent><expr> <TAB>
-          \ pumvisible() ? "\<C-n>" :
-          \ <SID>check_back_space() ? "\<TAB>" :
-          \ coc#refresh()
-    inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+        inoremap <silent><expr> <TAB>
+              \ pumvisible() ? "\<C-n>" :
+              \ <SID>check_back_space() ? "\<TAB>" :
+              \ coc#refresh()
+        inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-    function! s:check_back_space() abort
-      let col = col('.') - 1
-      return !col || getline('.')[col - 1]  =~# '\s'
-    endfunction
+        function! s:check_back_space() abort
+          let col = col('.') - 1
+          return !col || getline('.')[col - 1]  =~# '\s'
+        endfunction
 
     " Use <c-space> to trigger completion.
-    inoremap <silent><expr> <c-space> coc#refresh()
+        inoremap <silent><expr> <c-space> coc#refresh()
 
     " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
     " position. Coc only does snippet and additional edit on confirm.
     " <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
-    if exists('*complete_info')
-      inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-    else
-      inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-    endif
+        if exists('*complete_info')
+          inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+        else
+          inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+        endif
 
     " Use `[g` and `]g` to navigate diagnostics
-    nmap <silent> [g <Plug>(coc-diagnostic-prev)
-    nmap <silent> ]g <Plug>(coc-diagnostic-next)
+        nmap <silent> [g <Plug>(coc-diagnostic-prev)
+        nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
     " GoTo code navigation.
-    nmap <silent> gd <Plug>(coc-definition)
-    nmap <silent> gy <Plug>(coc-type-definition)
-    nmap <silent> gi <Plug>(coc-implementation)
-    nmap <silent> gr <Plug>(coc-references)
+        nmap <silent> gd <Plug>(coc-definition)
+        nmap <silent> gy <Plug>(coc-type-definition)
+        nmap <silent> gi <Plug>(coc-implementation)
+        nmap <silent> gr <Plug>(coc-references)
 
     " Use K to show documentation in preview window.
-    nnoremap <silent> K :call <SID>show_documentation()<CR>
+        nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-    function! s:show_documentation()
-      if (index(['vim','help'], &filetype) >= 0)
-        execute 'h '.expand('<cword>')
-      else
-        call CocAction('doHover')
-      endif
-    endfunction
+        function! s:show_documentation()
+          if (index(['vim','help'], &filetype) >= 0)
+            execute 'h '.expand('<cword>')
+          else
+            call CocAction('doHover')
+          endif
+        endfunction
 
     " Highlight the symbol and its references when holding the cursor.
-    autocmd CursorHold * silent call CocActionAsync('highlight')
+        autocmd CursorHold * silent call CocActionAsync('highlight')
 
     " Symbol renaming.
-    nmap <leader>rn <Plug>(coc-rename)
+        nmap <leader>rn <Plug>(coc-rename)
 
     " Formatting selected code.
-    xmap <leader>f  <Plug>(coc-format-selected)
-    nmap <leader>f  <Plug>(coc-format-selected)
+        xmap <leader>f  <Plug>(coc-format-selected)
+        nmap <leader>f  <Plug>(coc-format-selected)
 
-    augroup mygroup
-      autocmd!
-      " Setup formatexpr specified filetype(s).
-      autocmd FileType typescript,json,python setl formatexpr=CocAction('formatSelected')
-      " Update signature help on jump placeholder.
-      autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-    augroup end
+        augroup mygroup
+          autocmd!
+          " Setup formatexpr specified filetype(s).
+          autocmd FileType typescript,json,python setl formatexpr=CocAction('formatSelected')
+          " Update signature help on jump placeholder.
+          autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+        augroup end
 
     " Add `:Format` command to format current buffer.
-    command! -nargs=0 Format :call CocAction('format')
+        command! -nargs=0 Format :call CocAction('format')
 
     " Add `:Fold` command to fold current buffer.
-    command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+        command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
     " Add `:OR` command for organize imports of the current buffer.
-    command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+        command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
     " Add (Neo)Vim's native statusline support.
     " NOTE: Please see `:h coc-status` for integrations with external plugins that
     " provide custom statusline: lightline.vim, vim-airline.
-    set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+        set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
     " Mappings using CoCList:
     " Show all diagnostics.
-    nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+        nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
     " Do default action for next item.
-    nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+        nnoremap <silent> <space>j  :<C-u>CocNext<CR>
     " Do default action for previous item.
-    nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+        nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+
+"__Vim-Lexical__
+    augroup lexical
+      autocmd!
+      autocmd FileType markdown,mkd call lexical#init()
+      autocmd FileType latex,tex call lexical#init()
+      autocmd FileType textile call lexical#init()
+      autocmd FileType text call lexical#init({ 'spell': 0 })
+    augroup END
+
+    let g:lexical#spell = 0         " 0=disabled, 1=enabled
+    let g:lexical#spelllang = ['en_gb','nl',]
+    let g:lexical#spell_key = '<leader>s'
+
+"__Vim-snippets__
+    " <C-j> :  advance to next tabstop
+    " <C-k> : reverse to previous tabstop
 
 " __Plug__
-call plug#begin('~/.config/nvim/plugged')
-    " Startup screen
-    Plug 'mhinz/vim-startify'
-    " File manager
-    Plug 'preservim/nerdtree'
-    " Motion
-    Plug 'easymotion/vim-easymotion'
-    " Terminal
-    Plug 'voldikss/vim-floaterm'
-   " Easthetic changes
-    Plug 'jeffkreeftmeijer/vim-numbertoggle'
-    Plug 'ryanoasis/vim-devicons'
-   " Automated typing
-    Plug 'honza/vim-snippets'
-    Plug 'tomtom/tcomment_vim'
-    Plug 'jiangmiao/auto-pairs'
-    Plug 'Vimjas/vim-python-pep8-indent'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    """
-    " Using the COC plugins: vimtex,texlab,python,snippets
-    """
-    " Status bar
-    Plug 'itchyny/lightline.vim'
-    " Distraction free mode
-    Plug 'junegunn/limelight.vim'
-    Plug 'junegunn/goyo.vim'
-    " Document compiling(.tex and .md)
-    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
-    Plug 'lervag/vimtex'
-    " Syntax highlight
-    Plug 'sheerun/vim-polyglot'
-    Plug 'lilydjwg/colorizer'
-    " Searching
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
-    Plug 'airblade/vim-rooter'
-    Plug 'ctrlpvim/ctrlp.vim'
-    Plug 'davidbeckingsale/writegood.vim'
-call plug#end()
+    call plug#begin('~/.config/nvim/plugged')
+        " Startup screen
+        Plug 'mhinz/vim-startify'
+        " File manager
+        Plug 'preservim/nerdtree'
+        " Motion
+        Plug 'easymotion/vim-easymotion'
+        " Terminal
+        Plug 'voldikss/vim-floaterm'
+       " Easthetic changes
+        Plug 'jeffkreeftmeijer/vim-numbertoggle'
+        Plug 'ryanoasis/vim-devicons'
+       " Automated typing
+        Plug 'honza/vim-snippets'
+        Plug 'tomtom/tcomment_vim'
+        Plug 'jiangmiao/auto-pairs'
+        Plug 'Vimjas/vim-python-pep8-indent'
+        Plug 'reedes/vim-lexical'
+        Plug 'neoclide/coc.nvim', {'branch': 'release'}
+        """
+        " Using the COC plugins: vimtex,texlab,python,snippets
+        """
+        " Status bar
+        Plug 'itchyny/lightline.vim'
+        " Distraction free mode
+        Plug 'junegunn/limelight.vim'
+        Plug 'junegunn/goyo.vim'
+        " Document compiling(.tex and .md)
+        Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+        Plug 'lervag/vimtex'
+        " Syntax highlight
+        Plug 'sheerun/vim-polyglot'
+        Plug 'lilydjwg/colorizer'
+        " Searching
+        Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+        Plug 'junegunn/fzf.vim'
+        Plug 'airblade/vim-rooter'
+        " Plug 'ctrlpvim/ctrlp.vim'
+        Plug 'davidbeckingsale/writegood.vim'
+    call plug#end()

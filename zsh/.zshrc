@@ -78,7 +78,7 @@ ZSH_THEME="oxide"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting vi-mode)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -104,34 +104,17 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
- alias lock='~/Programs/Scripts/lock'
- alias sysinfo='neofetch'
- alias goDNA='/home/jan/Documents/oxDNA/build/bin/oxDNA'
- alias gocogli1='/home/jan/Documents/cogli1/build/bin/cogli1'
  alias n='nnn'
  alias la='ls -A'
- alias vim='nvim'
- alias display='arandr'
- alias sound='pavucontrol'
- alias popcorn='/home/jan/Programs/Popcorn-Time/Popcorn-Time'
- alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
- alias cmatrix="unimatrix -fa"
  alias cls="clear"
  alias starwars="telnet towel.blinkenlights.nl"
- alias logout='i3-msg exit'
- alias bluetooth="bluetoothctl"
  alias p='sudo pacman'
- alias config='/usr/bin/git --git-dir=/home/jan/Dotfiles --work-tree=/home/jan'
- alias ref='cat ~/.config/ref.txt'
- alias keybindings='cat ~/.config/keybindings.txt'
  alias search="fzf"
  alias weather="clear && curl v2.wttr.in/leuven"
  alias i3conf="nvim ~/.config/i3/config"
- alias bat='upower -i /org/freedesktop/UPower/devices/keyboard_hid_dco2co26ocdo37o75_battery | grep -E "state|to\ full|percentage"'
- alias printer='system-config-printer'
- alias lmp='~/lammps-7Aug19/src/lmp_serial'
  alias v='nvim'
  alias vim='nvim'
+ alias vconf='vim ~/.config/nvim/init.vim'
 
 # Bash insulter
 if [ -f /etc/bash.command-not-found ]; then
@@ -140,7 +123,7 @@ fi
 
 # nnn configuration
 export TERMINAL="kitty"
-export BROWSER="brave"
+export BROWSER="chromium"
 export READER="mupdf"
 export PIX="feh"
 export ZIP="unzip"
@@ -151,10 +134,13 @@ export EDITOR="nvim"
 ufetch
 
 # vi mode
-bindkey -v
+# bindkey -v
 
 # Use vim keys in tab completion
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -M menuselect 'ctrl+k' vi-up-line-or-history
+bindkey -M menuselect 'ctrl+j' vi-down-line-or-history
+
+autoload -Uz compinit
+compinit
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin
