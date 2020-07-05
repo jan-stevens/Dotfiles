@@ -13,6 +13,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/jan/.oh-my-zsh"
 
+# Path to custom scripts
+export PATH=$PATH:~/Programs/Scripts
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -105,7 +108,7 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
  alias n='nnn'
- alias la='ls -A'
+ alias la='ls -al'
  alias cls="clear"
  alias starwars="telnet towel.blinkenlights.nl"
  alias p='sudo pacman'
@@ -115,6 +118,9 @@ source $ZSH/oh-my-zsh.sh
  alias v='nvim'
  alias vim='nvim'
  alias vconf='vim ~/.config/nvim/init.vim'
+ alias mpv='devour mpv'
+ alias mupdf='devour mupdf'
+ alias feh='devour feh'
 
 # Bash insulter
 if [ -f /etc/bash.command-not-found ]; then

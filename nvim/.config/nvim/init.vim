@@ -61,6 +61,7 @@ let mapleader=" "
     set showmatch
     set hidden
     filetype plugin on
+    set inccommand=nosplit
 
 " Set search options
     set ignorecase
