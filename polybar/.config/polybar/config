@@ -62,7 +62,7 @@ font-6 = "Font Awesome 5 Free Solid:pixelsize=23;4"
 
 modules-left = i3 spotify
 modules-center = xbacklight time pulseaudio
-modules-right =  network filesystem battery powermenu
+modules-right =  network cpu filesystem battery powermenu
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -81,8 +81,9 @@ format =%{T3}%{T1} <label>
 
 [module/cpu]
 type = internal/cpu
-format = %{T3}%{T1} <label>
+format = %{T3}%{F#ff4971}%{T8}:%{F-}%{T1}<label>
 interval = 3
+
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -100,14 +101,22 @@ label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
 label-indicator-underline = ${colors.secondary}
 
+/* [module/cpu] */
+/* type = internal/cpu */
+/* interval = 2 */
+/* format-prefix = " " */
+/* format-prefix-foreground = ${colors.foreground-light} */
+/* ;format-underline = #f90000 */
+/* label = %percentage:2%% */
+
 [module/filesystem]
 type = internal/fs
 interval = 30
 
 mount-0 = /
 
-label-mounted = %{T3}  %{T1}%{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
-label-unmounted =%{T3} %{T4} %mountpoint% not mounted
+label-mounted =%{T3}%{T1}%{F#0a81f5}%mountpoint%%{F-}:%percentage_used%%
+label-unmounted =%{T3}%{T4}%mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
 [module/i3]
@@ -215,7 +224,7 @@ format-charging-underline = #ffb52a
 format-discharging = <animation-discharging> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = " "
+format-full-prefix = ""
 format-full-prefix-foreground = ${colors.foreground}
 format-full-prefix-font = 5
 
@@ -267,7 +276,7 @@ label-separator = " "
 label-separator-foreground = ${colors.foreground}
 
 menu-0-0 = "reboot"
-menu-0-0-exec = restart
-menu-0-1 = "power off"
+menu-0-0-exec = reboot
+menu-0-1 = "power off "
 menu-0-1-exec = poweroff
 

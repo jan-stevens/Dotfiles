@@ -107,7 +107,7 @@ let mapleader=" "
 " ___Plugin settings___
 
 " __Goyo__
-    map <leader>g :Goyo<CR>
+    nnoremap <silent> <leader>g :Goyo<CR>
 
 " __Lightline__
     let g:lightline={'colorscheme': 'wombat',}
@@ -352,7 +352,7 @@ let mapleader=" "
 
     " Formatting selected code.
         xmap <leader>f  <Plug>(coc-format-selected)
-        nmap <leader>f  <Plug>(coc-format-selected)
+        nmap <leader>f  : Format<CR>
 
         augroup mygroup
           autocmd!
@@ -397,7 +397,7 @@ let mapleader=" "
     let g:lexical#spelllang = ['en_gb','nl',]
     let g:lexical#spell_key = '<leader>s'
 
-"__Vim-snippets__
+" __Vim-snippets__
     " <C-j> :  advance to next tabstop
     " <C-k> : reverse to previous tabstop
 

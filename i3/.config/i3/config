@@ -184,7 +184,7 @@ bindsym XF86LaunchA exec --no-startup-id pavucontrol
 # My exec commands
 exec_always --no-startup-id picom --dbus
 exec_always --no-startup-id autotiling
-exec_always --no-startup-id sleep 0.8 && feh --bg-scale ~/Pictures/Wallpapers/manuel-cosentino-n--CMLApjfI-unsplash.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/z2bunh2keg051.jpg
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id dunst
 exec --no-startup-id unclutter --timeout 2

@@ -1,16 +1,17 @@
 #!/bin/bash
 
 
-WIFI_STATUS=$([ -f /sys/class/net/wlp2s0/operstate ] && cat /sys/class/net/wlp2s0/operstate || [ -f /sys/class/net/wlan0/operstate ] && cat /sys/class/net/wlan0/operstate);
-# WIFI_STATUS=$(cat /sys/class/net/wlan0/operstate);
-#CONNECTION=$(nmcli -t -f name connection show --active);
-CONNECTION=$(connmanctl services | awk  '{print $2}');
+WIFI_STATUS=$(cat /sys/class/net/wlan0/operstate)
+CONNECTION=$(
+iwctl station wlan0 show | sed -n -e 's/^.*network //p'| awk '{gsub(/^ +| +$/,"")} {print $0}'
+)
+# CONNECTION="${CONNECTION%%*()}"
 
-if [ "$WIFI_STATUS" = "up" ];
+if [ "$WIFI_STATUS" = "up" ]
 then
-  ICON="";
+  ICON=""
 else
-  ICON="";
+  ICON=""
   CONNECTION="Disconnected"
 fi
-echo "$CONNECTION"
+echo "${CONNECTION}"
