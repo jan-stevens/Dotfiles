@@ -116,8 +116,10 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 bindsym $mod+m move scratchpad
 bindsym $mod+o scratchpad show
 
-for_window [class="Spotify"] move to workspace $ws5
+for_window [class="Spotify"] move to workspace $ws10
 for_window [class="MEGAsync"] floating enable
+for_window [class="Alacritty"] floating enable
+for_window [class="Alacritty"] [floating] resize set 2600 1500; [floating] move absolute position center
 
 # reload the configuration file
 #bindsym $mod+Shift+r+c reload
@@ -206,6 +208,7 @@ gaps outer 15
 bindsym Print exec --no-startup-id flameshot gui
 bindsym $mod+t exec --no-startup-id kitty htop & kitty gotop
 bindsym $mod+Shift+m exec --no-startup-id kitty micro
+bindsym $mod+n exec --no-startup-id alacritty -e newsboat
 bindsym $mod+Shift+n exec --no-startup-id fromscratch
 bindsym $mod+Shift+c exec --no-startup-id chromium
 bindsym $mod+Shift+v exec --no-startup-id pcmanfm

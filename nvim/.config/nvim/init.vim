@@ -9,7 +9,6 @@
 "==========================================================================
 "==========================================================================
 
-
 let mapleader=" "
 
 " __Standard nvim settings__
@@ -17,11 +16,24 @@ let mapleader=" "
 " Remove trailing whitespace on save
     autocmd BufWritePre * %s/\s\+$//e
 
-    " Shortcutting split navigation
-        map <C-h> <C-w>h
-        map <C-j> <C-w>j
-        map <C-k> <C-w>k
-        map <C-l> <C-w>l
+" Presentation mode
+    " dependencies: toilet and figlet
+    " Use mod+shift+f to fullscreen -> problems with images
+    nmap <F5> :call ToggleHiddenAll()<CR>
+    nmap <F2> :call DisplayPresentationBoundaries()<CR>
+    nmap <F3> :call FindExecuteCommand()<CR>
+    noremap <silent> <C-o> :silent bp<CR> :redraw!<CR>
+    noremap <silent> <C-p> :silent bn<CR> :redraw!<CR>
+
+" Shortcutting split navigation
+    map <C-h> <C-w>h
+    map <C-j> <C-w>j
+    map <C-k> <C-w>k
+    map <C-l> <C-w>l
+
+" remap j k to jump between visible lines
+    nnoremap k gk
+    nnoremap j gj
 
 " Alias replace all to S
     nnoremap S :%s//gI<Left><Left><Left>
@@ -44,6 +56,9 @@ let mapleader=" "
     nnoremap <Down> :resize -2<CR>
     nnoremap <Left> :vertical resize +2<CR>
     nnoremap <Right> :vertical resize -2<CR>
+" Print section title or devider
+    nnoremap <leader>t :call CreateTitle()<cr>
+    nnoremap <leader>b :call CreateBorder()<cr>
 
 " Basic settings
     set encoding=utf-8
@@ -60,7 +75,10 @@ let mapleader=" "
     set backspace=indent,eol,start
     set showmatch
     set hidden
+    set scrolloff=10
     filetype plugin on
+    syntax on
+    filetype off
     set inccommand=nosplit
 
 " Set search options
@@ -85,29 +103,30 @@ let mapleader=" "
 " Cursor settings
     set mouse=a
     hi cursorline cterm=NONE ctermbg=238
-    augroup CursorLine
-        au!
-        au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-        au WinLeave * setlocal nocursorline
-    augroup END
+    set cursorline
+    " augroup CursorLine
+    "     au!
+    "     au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    "     au WinLeave * setlocal nocursorline
+    " augroup END
 
 " Autocompletion
     set wildmode=longest,list,full
 
 " Fix splitting
     set splitbelow splitright
-
-" Give more space for displaying messages.
-    set cmdheight=2
-
-" Configuring folding
-    set foldmethod=indent
-    set nofoldenable
+" Implement Ascii art font
+    nmap <leader>an :.!toilet -w 200 -f fonts/standard<CR>
+    nmap <leader>ab :.!toilet -w 200 -f pagga<CR>
+    nmap <leader>as :.!toilet -w 200 -f smblock<CR>
+    nmap <leader>am :.!toilet -w 200 -f smbraille<CR>
+    " makes Ascii border
+    nmap <leader>af :.!toilet -w 200 -f term -F border<CR>
 
 " ___Plugin settings___
 
 " __Goyo__
-    nnoremap <silent> <leader>g :Goyo<CR>
+    map <leader>g :Goyo<CR>
 
 " __Lightline__
     let g:lightline={'colorscheme': 'wombat',}
@@ -187,6 +206,11 @@ let mapleader=" "
     let g:vimtex_compiler_progname = 'nvr'
     " settings for zathura
         let g:vimtex_view_general_viewer = 'zathura'
+    " hopefully hiddig annoying window
+        let g:vimtex_quickfix_mode=0
+    " enable concealment
+        set conceallevel=1
+        let g:tex_conceal='abdmg'
     " key mappings for latex
         let g:vimtex_mappings_enabled = 0
         nnoremap <silent> ;lt : VimtexTocToggle<CR>
@@ -197,7 +221,7 @@ let mapleader=" "
 
         augroup filetype_latex
             autocmd!
-            autocmd BufRead *.tex nnoremap <buffer> <leader>c : VimtexCompile<CR>: VimtexClean<CR>
+            autocmd BufRead *.tex nnoremap <buffer> <leader>c :VimtexCompile<CR> :VimtexClean<CR>
         augroup END
 
 " __WriteGood__
@@ -208,7 +232,7 @@ let mapleader=" "
     " key mappings for markdown
         augroup filetype_markdown
           autocmd!
-          autocmd BufRead *.md nnoremap <buffer> <leader>c : MarkdownPreview<CR>
+          autocmd BufRead *.md nnoremap <buffer> <leader>c :MarkdownPreview<CR>
         augroup END
 
 " __RunPythonCode__
@@ -216,7 +240,7 @@ let mapleader=" "
     " key mappings for python excecution
         augroup filetype_python
             autocmd!
-            autocmd BufRead *.py nnoremap <buffer> <leader>c : w<CR>:!python %<CR>
+            autocmd BufRead *.py nnoremap <buffer> <leader>c :w<CR> :silent !python %<CR>
         augroup END
 
 " __Floaterm__
@@ -292,7 +316,6 @@ let mapleader=" "
 
     " Don't pass messages to |ins-completion-menu|.
         set shortmess+=c
-
     " Always show the signcolumn, otherwise it would shift the text each time
     " diagnostics appear/become resolved.
         set signcolumn=yes
@@ -351,8 +374,8 @@ let mapleader=" "
         nmap <leader>rn <Plug>(coc-rename)
 
     " Formatting selected code.
-        xmap <leader>f  <Plug>(coc-format-selected)
-        nmap <leader>f  : Format<CR>
+        xmap <leader>f  <Plug>(coc-format)
+        nmap <leader>f  <Plug>(coc-format)
 
         augroup mygroup
           autocmd!
@@ -397,9 +420,14 @@ let mapleader=" "
     let g:lexical#spelllang = ['en_gb','nl',]
     let g:lexical#spell_key = '<leader>s'
 
-" __Vim-snippets__
+"__Vim-snippets__
     " <C-j> :  advance to next tabstop
     " <C-k> : reverse to previous tabstop
+
+"__ultisnips__
+    let g:UltiSnipsExpandTrigger = '<s-tab>'
+    let g:UltiSnipsJumpForwardTrigger = '<s-tab>'
+    " let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 " __Plug__
     call plug#begin('~/.config/nvim/plugged')
@@ -409,18 +437,21 @@ let mapleader=" "
         Plug 'preservim/nerdtree'
         " Motion
         Plug 'easymotion/vim-easymotion'
+        Plug 'psliwka/vim-smoothie'
         " Terminal
         Plug 'voldikss/vim-floaterm'
        " Easthetic changes
         Plug 'jeffkreeftmeijer/vim-numbertoggle'
         Plug 'ryanoasis/vim-devicons'
        " Automated typing
+        Plug 'sirver/ultisnips'
         Plug 'honza/vim-snippets'
         Plug 'tomtom/tcomment_vim'
         Plug 'jiangmiao/auto-pairs'
         Plug 'Vimjas/vim-python-pep8-indent'
         Plug 'reedes/vim-lexical'
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
+        Plug 'tpope/vim-surround'
         """
         " Using the COC plugins: vimtex,texlab,python,snippets
         """
@@ -442,3 +473,108 @@ let mapleader=" "
         " Plug 'ctrlpvim/ctrlp.vim'
         Plug 'davidbeckingsale/writegood.vim'
     call plug#end()
+" __Homemade functions__
+    "Presentation mode
+    let s:hidden_all = 0
+    function! ToggleHiddenAll()
+        if s:hidden_all  == 0
+            let s:hidden_all = 1
+            set noshowmode
+            set noruler
+            set cursorline!
+            set colorcolumn=0
+            set laststatus=0
+            set noshowcmd
+            set relativenumber!
+            set number!
+            set hidden!
+            set signcolumn=no
+        else
+            let s:hidden_all = 0
+            set showmode
+            set ruler
+            set colorcolumn=80
+            set laststatus=2
+            set showcmd
+            set number relativenumber
+            set hidden
+            set signcolumn=yes
+        endif
+    endfunction
+
+    let g:presentationBoundsDisplayed = 0
+    function! DisplayPresentationBoundaries()
+      if g:presentationBoundsDisplayed
+        match
+        set colorcolumn=0
+        let g:presentationBoundsDisplayed = 0
+      else
+        highlight lastoflines ctermbg=darkred guibg=darkred
+        match lastoflines /\%23l/
+        set colorcolumn=80
+        let g:presentationBoundsDisplayed = 1
+      endif
+    endfunction
+
+    function! FindExecuteCommand()
+      let line = search('\S*!'.'!:.*')
+      if line > 0
+        let command = substitute(getline(line), "\S*!"."!:*", "", "")
+        execute "silent !". command
+        execute "normal gg0"
+        redraw
+      endif
+    endfunction
+
+    " Automatically source an eponymous <file>.vim or <file>.<ext>.vim if it exists, as a bulked-up
+    " modeline and to provide file-specific customizations.
+    function! s:AutoSource()
+        let l:testedScripts = ['syntax.vim']
+        if expand('<afile>:e') !=# 'vim'
+            " Don't source the edited Vimscript file itself.
+            call add(l:testedScripts, 'syntax.vim')
+        endif
+
+        for l:filespec in l:testedScripts
+            if filereadable(l:filespec)
+                execute 'source' fnameescape(l:filespec)
+            endif
+        endfor
+
+        call FindExecuteCommand()
+    endfunction
+    augroup AutoSource
+        autocmd! BufNewFile,BufRead * call <SID>AutoSource()
+    augroup END
+
+    function! CreateTitle()
+        let l:amount=50
+        normal VU"eyy
+        "get lenght of string but it includes newline char
+        "@e is at buffer e thats where the line above copies to
+        let l:actlength=(strlen(@e)-3)
+        let l:remain=(l:amount - l:actlength)
+        let l:half=((l:remain / 2) - 1)
+        normal "_dd
+        normal o
+        normal 50i-
+        normal "ep
+        normal I
+        normal A
+        execute "normal! 0". l:half . "i-"
+        execute "normal! $". l:half . "A-"
+        "modulo to get remainer for even/odd figuring
+        if(fmod(l:actlength,2) > 0)
+            normal A-
+        endif
+        normal o
+        normal 50i-
+    endfunction
+
+    function! CreateBorder()
+        normal o
+        normal 79i#
+        normal o
+        normal 79i#
+    endfunction
+
