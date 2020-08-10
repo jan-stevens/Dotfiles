@@ -553,28 +553,30 @@ let mapleader=" "
         "get lenght of string but it includes newline char
         "@e is at buffer e thats where the line above copies to
         let l:actlength=(strlen(@e)-3)
-        let l:remain=(l:amount - l:actlength)
+        let l:remain=(l:amount - l:actlength - 10)
         let l:half=((l:remain / 2) - 1)
         normal "_dd
         normal o
-        normal 50i-
+        normal 50i#
         normal "ep
         normal I
         normal A
-        execute "normal! 0". l:half . "i-"
-        execute "normal! $". l:half . "A-"
+        execute "normal! 0". 5 . "i "
+        execute "normal! 0". l:half . "i#"
+        execute "normal! $". 5 . "A "
+        execute "normal! $". l:half . "A#"
         "modulo to get remainer for even/odd figuring
         if(fmod(l:actlength,2) > 0)
-            normal A-
+            normal A#
         endif
         normal o
-        normal 50i-
+        normal 50i#
     endfunction
 
     function! CreateBorder()
         normal o
-        normal 79i#
+        normal 50i#
         normal o
-        normal 79i#
+        normal 50i#
     endfunction
 
