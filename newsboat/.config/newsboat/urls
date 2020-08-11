@@ -3,6 +3,7 @@
 ░░█░░█░█░█░█░░█░░█░█░█▀▄░█▀▀░
 ░░▀░░▀▀▀░▀▀▀░░▀░░▀▀▀░▀▀░░▀▀▀░
 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
 "query:New Videos:tags # \"Youtube\" and unread =\"yes\"
 "query:All Videos:tags # \"Youtube\""
 https://www.youtube.com/feeds/videos.xml?channel_id=UC-lHJZR3Gqxm24_Vd_AJ5Yw  "!hidden" "Youtube" "pewdiepie"
@@ -38,11 +39,13 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCu5iad8GqZOOlhFPMvde8Dw  "!
 https://www.youtube.com/feeds/videos.xml?channel_id=UCuXy5tCgEninup9cGplbiFw  "!hidden" "Youtube" "Missing Semester"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCvBqzzvUBLCs8Y7Axb-jZew  "!hidden" "Youtube" "Sixty Symbols"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCvWU1K29wCZ8j1NsXsRrKnA  "!hidden" "Youtube" "LilyPichu"
+
 ░░░░░░░░░░░░░░░░░░░░░░░░░
 ░▀█▀░█░█░▀█▀░▀█▀░█▀▀░█░█░
 ░░█░░█▄█░░█░░░█░░█░░░█▀█░
 ░░▀░░▀░▀░▀▀▀░░▀░░▀▀▀░▀░▀░
 ░░░░░░░░░░░░░░░░░░░░░░░░░
+
 "query:New Streams:tags # \"Twitch\" and unread =\"yes\"
 https://twitchrss.appspot.com/vod/chilledchaos "!hidden" "chilledchaos" "Twitch"
 https://twitchrss.appspot.com/vod/sykkuno "!hidden" "sykkuno" "Twitch"
@@ -67,3 +70,12 @@ https://twitchrss.appspot.com/vod/peterparktv "!hidden" "peterparktv" "Twitch"
 ░█░█░█▀▀░█▄█░▀▀█░
 ░▀░▀░▀▀▀░▀░▀░▀▀▀░
 ░░░░░░░░░░░░░░░░░
+
+https://decorrespondent.nl/feed/v1/publications
+https://decorrespondent.nl/feed/v1/collection/54249
+https://decorrespondent.nl/feed/v1/collection/66424
+https://decorrespondent.nl/feed/v1/collection/65647
+https://decorrespondent.nl/feed/v1/collection/62604
+https://decorrespondent.nl/feed/v1/profile/rutgerbregman
+https://decorrespondent.nl/feed/v1/profile/jessefrederik
+https://www.tzum.info/feed/

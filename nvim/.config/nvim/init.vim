@@ -8,8 +8,11 @@
 "===                                                                    ===
 "==========================================================================
 "==========================================================================
-
+"
 let mapleader=" "
+
+" Give more space for displaying messages.
+    set cmdheight=2
 
 " __Standard nvim settings__
 
@@ -104,11 +107,11 @@ let mapleader=" "
     set mouse=a
     hi cursorline cterm=NONE ctermbg=238
     set cursorline
-    " augroup CursorLine
-    "     au!
-    "     au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-    "     au WinLeave * setlocal nocursorline
-    " augroup END
+    augroup CursorLine
+        au!
+        au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+        au WinLeave * setlocal nocursorline
+    augroup END
 
 " Autocompletion
     set wildmode=longest,list,full
@@ -484,7 +487,7 @@ let mapleader=" "
             set cursorline!
             set colorcolumn=0
             set laststatus=0
-            set noshowcmd
+            " set noshowcmd
             set relativenumber!
             set number!
             set hidden!
@@ -579,4 +582,3 @@ let mapleader=" "
         normal o
         normal 50i#
     endfunction
-
