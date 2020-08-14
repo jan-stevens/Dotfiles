@@ -11,9 +11,6 @@
 "
 let mapleader=" "
 
-" Give more space for displaying messages.
-    set cmdheight=2
-
 " __Standard nvim settings__
 
 " Remove trailing whitespace on save
@@ -64,7 +61,7 @@ let mapleader=" "
     nnoremap <leader>b :call CreateBorder()<cr>
 
 " Basic settings
-    set encoding=utf-8
+    set encoding=utf8
     set number relativenumber
     set noerrorbells
     set linebreak
@@ -95,6 +92,9 @@ let mapleader=" "
 " Set ruler
     set ruler
     set colorcolumn=80
+
+" Give more space for displaying messages.
+    set cmdheight=2
 
 " Tab Settings
     set smarttab
@@ -445,7 +445,6 @@ let mapleader=" "
         Plug 'voldikss/vim-floaterm'
        " Easthetic changes
         Plug 'jeffkreeftmeijer/vim-numbertoggle'
-        Plug 'ryanoasis/vim-devicons'
        " Automated typing
         Plug 'sirver/ultisnips'
         Plug 'honza/vim-snippets'

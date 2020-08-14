@@ -39,9 +39,9 @@ color listfocus_unread yellow default bold
 color info red black bold
 color article white default bold
 
-browser chromium %u
+browser min
 macro , open-in-browser
-macro o set browser "devour mpv --fs --initial-audio-sync --really-quiet -ytdl" ; open-in-browser ; set browser chromium %u
+macro o set browser "mpv --fs --initial-audio-sync --really-quiet --ytdl" ; open-in-browser ; set browser min
 
 highlight all "---.*---" yellow
 highlight all "█" yellow

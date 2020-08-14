@@ -8,7 +8,7 @@
 
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.local/bin/
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/jan/.oh-my-zsh"
@@ -43,7 +43,7 @@ ZSH_THEME="oxide"
 # DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
- export UPDATE_ZSH_DAYS=3
+ export UPDATE_ZSH_DAYS=7
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS=true
@@ -118,9 +118,11 @@ source $ZSH/oh-my-zsh.sh
  alias v='nvim'
  alias vim='nvim'
  alias vconf='vim ~/.config/nvim/init.vim'
- alias mpv='devour mpv'
- alias mupdf='devour mupdf'
- alias feh='devour feh'
+ alias mutt='neomutt'
+ alias m='neomutt'
+#  alias mpv='devour mpv'
+#  alias mupdf='devour mupdf'
+#  alias feh='devour feh'
 
 # Bash insulter
 if [ -f /etc/bash.command-not-found ]; then
@@ -141,10 +143,6 @@ ufetch
 
 # vi mode
 # bindkey -v
-
-# Use vim keys in tab completion
-bindkey -M menuselect 'ctrl+k' vi-up-line-or-history
-bindkey -M menuselect 'ctrl+j' vi-down-line-or-history
 
 autoload -Uz compinit
 compinit

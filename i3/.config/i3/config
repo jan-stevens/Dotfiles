@@ -8,6 +8,19 @@
 ################################################################
 ################################################################
 
+# KEY DEFINITIONS TO REMEMBER
+
+# $Mod = WINDOWS key or Super key or Mod4
+# Mod1 = ALT key
+# Control = CTRL key
+# Shift = SHIFT key
+# Escape = ESCAPE key
+# Return = ENTER or RETURN key
+# KP_Enter = Keypad Enter
+# Pause = PAUSE key
+# Print = PRINT key
+# Tab = TAB key
+
 # Set modkey
 set $mod Mod4
 
@@ -25,6 +38,9 @@ bindsym $mod+Return exec --no-startup-id kitty
 
 # kill focused window
 bindsym $mod+c kill
+
+# Kill programs
+bindsym $mod+Escape exec --nopstartup-id xkill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id rofi -show run
@@ -126,8 +142,7 @@ for_window [class="Alacritty"] [floating] resize set 2600 1500; [floating] move 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
+bindsym $mod+Shift+e exec --no-startup-id arcolinux-logout
 # resize window (you can also use the mouse for that)
 mode "resize" {
         bindsym j resize grow height 10 px or 10 ppt
@@ -168,10 +183,10 @@ hide_edge_borders both
 bindsym XF86AudioMute exec --no-startup-id pamixer -t
 bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5
 bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5
-
+# "amixer -D pulse sset Master '5%+'"
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5%
 
 # Touchpad controls
 bindsym XF86TouchpadToggle exec --no-startup-id /some/path/toggletouchpad.sh # toggle touchpad
@@ -185,14 +200,14 @@ bindsym XF86LaunchA exec --no-startup-id pavucontrol
 
 # My exec commands
 exec_always --no-startup-id picom --dbus
+exec --no-startup-id rfkill unblock all
 exec_always --no-startup-id autotiling
-exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/miguel-a-amutio-IRU7TuXXsbE-unsplash.jpg
+exec_always --no-startup-id nitrogen --set-zoom-fill --random ~/Pictures/Wallpapers/
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id dunst
 exec --no-startup-id unclutter --timeout 2
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id xfce4-power-manager
-exec_always --no-startup-id xautolock -time 15 -locker 'mantablockscreen -cc'
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id redshift
 exec --no-startup-id libinput-gestures-setup start
@@ -206,13 +221,13 @@ gaps outer 15
 
 #My own keybindings
 bindsym Print exec --no-startup-id flameshot gui
-bindsym $mod+t exec --no-startup-id kitty htop & kitty gotop
+bindsym $mod+t exec --no-startup-id kitty htop & kitty gtop
 bindsym $mod+Shift+m exec --no-startup-id kitty micro
 bindsym $mod+n exec --no-startup-id alacritty -e newsboat
 bindsym $mod+Shift+n exec --no-startup-id kitty ranger
 bindsym $mod+Shift+c exec --no-startup-id chromium
-bindsym $mod+Shift+v exec --no-startup-id pcmanfm
-bindsym $mod+Shift+x exec --no-startup-id mantablockscreen -cc
+bindsym $mod+Shift+v exec --no-startup-id thunar
+bindsym $mod+Shift+x exec --no-startup-id betterlockscreen -l
 bindsym $mod+Shift+t exec --no-startup-id tomate-gtk
 
 # System bindings with scripts
@@ -223,4 +238,3 @@ bindsym $mod+q exec --no-startup-id ~/Programs/Scripts/bluetooth_sony
 exec_always --no-startup-id xmodmap -e "clear lock"
 exec_always --no-startup-id xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
 exec_always --no-startup-id xmodmap -e "keycode 66 = Escape NoSymbol Escape"
-
