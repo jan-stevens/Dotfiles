@@ -10,11 +10,13 @@
 "==========================================================================
 "
 let mapleader=" "
-
 " __Standard nvim settings__
 
 " Remove trailing whitespace on save
     autocmd BufWritePre * %s/\s\+$//e
+" Fix indenting visual block
+    vmap < <gv
+    vmap > >gv
 
 " Presentation mode
     " dependencies: toilet and figlet
@@ -22,9 +24,11 @@ let mapleader=" "
     nmap <F5> :call ToggleHiddenAll()<CR>
     nmap <F2> :call DisplayPresentationBoundaries()<CR>
     nmap <F3> :call FindExecuteCommand()<CR>
-    noremap <silent> <C-o> :silent bp<CR> :redraw!<CR>
-    noremap <silent> <C-p> :silent bn<CR> :redraw!<CR>
+    " noremap <silent> <C-o> :silent bp<CR> :redraw!<CR>
+    " noremap <silent> <C-p> :silent bn<CR> :redraw!<CR>
 
+" User urview to choose and open an urls
+    noremap <leader>u :w \| startinsert \| term urlview %<cr>
 " Shortcutting split navigation
     map <C-h> <C-w>h
     map <C-j> <C-w>j
@@ -51,11 +55,12 @@ let mapleader=" "
     map <leader>en : setlocal spell! spelllang=en_gb<CR>
     map <leader>du : setlocal spell! spelllang=nl<CR>
 
-" Window resizing mappings /*{{{*/
+" Window resizing mappings
     nnoremap <Up> :resize +2<CR>
     nnoremap <Down> :resize -2<CR>
     nnoremap <Left> :vertical resize +2<CR>
     nnoremap <Right> :vertical resize -2<CR>
+
 " Print section title or devider
     nnoremap <leader>t :call CreateTitle()<cr>
     nnoremap <leader>b :call CreateBorder()<cr>
@@ -64,8 +69,6 @@ let mapleader=" "
     set encoding=utf8
     set number relativenumber
     set noerrorbells
-    set linebreak
-    set showbreak=+++
     set noswapfile
     set smartcase
     set autoindent
@@ -76,9 +79,9 @@ let mapleader=" "
     set showmatch
     set hidden
     set scrolloff=10
-    filetype plugin on
+    filetype plugin indent on
     syntax on
-    filetype off
+    " filetype off
     set inccommand=nosplit
 
 " Set search options
@@ -91,7 +94,12 @@ let mapleader=" "
 
 " Set ruler
     set ruler
-    set colorcolumn=80
+    set colorcolumn=90
+    au BufReadPost,BufNewFile *.md,*.txt,*.tex setlocal tw=89 | setlocal fo=aw2tq
+    autocmd BufNewFile,BufRead * if expand('%:t') !~ '\.' | setlocal tw=89 | endif
+    autocmd BufNewFile,BufRead * if expand('%:t') !~ '\.' | setlocal fo=aw2tq | endif
+
+    set showbreak=+++
 
 " Give more space for displaying messages.
     set cmdheight=2
@@ -118,6 +126,7 @@ let mapleader=" "
 
 " Fix splitting
     set splitbelow splitright
+
 " Implement Ascii art font
     nmap <leader>an :.!toilet -w 200 -f fonts/standard<CR>
     nmap <leader>ab :.!toilet -w 200 -f pagga<CR>
@@ -126,11 +135,18 @@ let mapleader=" "
     " makes Ascii border
     nmap <leader>af :.!toilet -w 200 -f term -F border<CR>
 
+
+"Implement folding
+    nnoremap <s-tab> za
+    nnoremap <leader>z zfip
+    set foldmethod=manual
+    set foldtext=MyFoldText()
+
 " ___Plugin settings___
 
 " __Goyo__
     map <leader>g :Goyo<CR>
-
+    let g:goyo_width = 91
 " __Lightline__
     let g:lightline={'colorscheme': 'wombat',}
     set laststatus=2
@@ -149,10 +165,6 @@ let mapleader=" "
     let g:NERDTreeMinimalUI = 1
     let g:NERDTreeWinPos = "right"
 
-" __Ctrlp__
-    " let g:ctrlp_user_command = 'find %s -type f'
-    " let g:ctrlp_map='<c-p>'
-    " let g:ctrlp_working_path_mode = 'ra'
 
 " __Easymotion__
     let g:EasyMotion_smartcase = 1
@@ -243,7 +255,7 @@ let mapleader=" "
     " key mappings for python excecution
         augroup filetype_python
             autocmd!
-            autocmd BufRead *.py nnoremap <buffer> <leader>c :w<CR> :silent !python %<CR>
+            autocmd BufRead *.py nnoremap <buffer> <leader>c :w<CR> :!python %<CR>
         augroup END
 
 " __Floaterm__
@@ -306,6 +318,13 @@ let mapleader=" "
           \ 'header':  ['fg', 'Comment'] }
 
 " __COC__
+let g:coc_global_extensions = [
+    \ 'coc-jedi',
+    \ 'coc-snippets',
+    \ 'coc-pyright',
+    \ 'coc-vimtex'
+    \ ]
+
     " TextEdit might fail if hidden is not set.
         set hidden
 
@@ -443,9 +462,9 @@ let mapleader=" "
         Plug 'psliwka/vim-smoothie'
         " Terminal
         Plug 'voldikss/vim-floaterm'
-       " Easthetic changes
+        " Easthetic changes
         Plug 'jeffkreeftmeijer/vim-numbertoggle'
-       " Automated typing
+        " Automated typing
         Plug 'sirver/ultisnips'
         Plug 'honza/vim-snippets'
         Plug 'tomtom/tcomment_vim'
@@ -472,9 +491,11 @@ let mapleader=" "
         Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
         Plug 'junegunn/fzf.vim'
         Plug 'airblade/vim-rooter'
-        " Plug 'ctrlpvim/ctrlp.vim'
+        " Misc
         Plug 'davidbeckingsale/writegood.vim'
+        Plug 'zhimsel/vim-stay'
     call plug#end()
+
 " __Homemade functions__
     "Presentation mode
     let s:hidden_all = 0
@@ -550,7 +571,7 @@ let mapleader=" "
     augroup END
 
     function! CreateTitle()
-        let l:amount=50
+        let l:amount=70
         normal VU"eyy
         "get lenght of string but it includes newline char
         "@e is at buffer e thats where the line above copies to
@@ -559,7 +580,7 @@ let mapleader=" "
         let l:half=((l:remain / 2) - 1)
         normal "_dd
         normal o
-        normal 50i#
+        normal 70i#
         normal "ep
         normal I
         normal A
@@ -572,12 +593,20 @@ let mapleader=" "
             normal A#
         endif
         normal o
-        normal 50i#
+        normal 70i#
     endfunction
 
     function! CreateBorder()
         normal o
-        normal 50i#
+        normal 89i#
         normal o
-        normal 50i#
+        normal 89i#
+    endfunction
+
+    function! MyFoldText()
+        let line = getline(v:foldstart)
+        let folded_line_num = v:foldend - v:foldstart
+        let line_text = substitute(line, '^"{\+', '', 'g')
+        let fillcharcount = &textwidth - len(line_text) - len(folded_line_num)
+        return '+'. repeat('-', 4) . line_text  . repeat('·', fillcharcount) . ' ( ' . folded_line_num . 'L ) '
     endfunction

@@ -107,32 +107,27 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
- alias n='nnn'
- alias la='ls -al'
- alias cls="clear"
- alias starwars="telnet towel.blinkenlights.nl"
- alias p='sudo pacman'
- alias search="fzf"
- alias weather="clear && curl v2.wttr.in/leuven"
- alias i3conf="nvim ~/.config/i3/config"
- alias v='nvim'
- alias vim='nvim'
- alias vconf='vim ~/.config/nvim/init.vim'
- alias mutt='neomutt'
- alias m='neomutt'
-#  alias mpv='devour mpv'
-#  alias mupdf='devour mupdf'
-#  alias feh='devour feh'
-
-# Bash insulter
-if [ -f /etc/bash.command-not-found ]; then
-    . /etc/bash.command-not-found
-fi
+alias n='nnn'
+alias la='ls -al'
+alias cls="clear"
+alias starwars="telnet towel.blinkenlights.nl"
+alias p='sudo pacman'
+alias search="fzf"
+alias weather="clear && curl v2.wttr.in/leuven"
+alias i3conf="nvim ~/.config/i3/config"
+alias v='nvim'
+alias vconf='nvim ~/.config/nvim/init.vim'
+alias mutt='neomutt'
+alias m='neomutt'
+alias keychron='~/Programs/Scripts/bluetooth_keychron'
+alias sony='~/Programs/Scripts/bluetooth_sony'
+alias proxy='~/Programs/Scripts/proxy.py'
+alias d='devour'
 
 # nnn configuration
 export TERMINAL="kitty"
 export BROWSER="chromium"
-export READER="mupdf"
+export READER="zathura"
 export PIX="feh"
 export ZIP="unzip"
 export EDITOR="nvim"

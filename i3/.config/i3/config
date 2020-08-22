@@ -28,19 +28,20 @@ set $mod Mod4
 focus_follows_mouse yes
 
 # Font for window titles.
-font pango:Jetbrains Mono 11
+font pango:Jetbrains Mono 13
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec --no-startup-id kitty
+bindsym $mod+Shift+Return exec --no-startup-id kitty --class='floatterm'; [class="floatterm"] scratchpad show
 
 # kill focused window
 bindsym $mod+c kill
 
 # Kill programs
-bindsym $mod+Escape exec --nopstartup-id xkill
+bindsym $mod+escape exec --nopstartup-id xkill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id rofi -show run
@@ -134,9 +135,15 @@ bindsym $mod+o scratchpad show
 
 for_window [class="Spotify"] move to workspace $ws10
 for_window [class="MEGAsync"] floating enable
-for_window [class="Alacritty"] floating enable
-for_window [class="Alacritty"] [floating] resize set 2600 1500; [floating] move absolute position center
-
+for_window [class="MEGAsync"] [floating] resize set 100 100; [floating] move position 0 0
+for_window [class="Blueberry"] floating enable
+for_window [instance="nnn"] floating enable
+for_window [instance="newsboat"] floating enable
+for_window [instance="floatterm"] floating enable
+for_window [class="Blueberry"] [floating] resize set 1500 1000; [floating] move absolute position center
+for_window [instance="nnn"] [floating] resize set 2000 1500; [floating] move absolute position center
+for_window [instance="newsboat"] [floating] resize set 2000 1500; [floating] move absolute position center
+for_window [instance="floatterm"] [floating] resize set 2000 1500; [floating] move absolute position center
 # reload the configuration file
 #bindsym $mod+Shift+r+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -185,10 +192,8 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5
 bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5
 # "amixer -D pulse sset Master '5%+'"
 # Sreen brightness controls
-bindsym $mod+i exec --no-startup-id xbacklight +5%
-# XF86MonBrightnessUp
-bindsym $mod+u exec --no-startup-id xbacklight -5%
-# XF86MonBrightnessDown
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5%
 
 # Touchpad controls
 bindsym XF86TouchpadToggle exec --no-startup-id /some/path/toggletouchpad.sh # toggle touchpad
@@ -223,10 +228,11 @@ gaps outer 15
 
 #My own keybindings
 bindsym Print exec --no-startup-id flameshot gui
+bindsym $mod+p exec --no-startup-id ~/Programs/Scripts/proxy.py
 bindsym $mod+t exec --no-startup-id kitty htop & kitty gtop
-bindsym $mod+Shift+m exec --no-startup-id kitty micro
-bindsym $mod+n exec --no-startup-id alacritty -e newsboat
-bindsym $mod+Shift+n exec --no-startup-id kitty ranger
+bindsym $mod+Shift+m exec --no-startup-id pomotroid
+bindsym $mod+Shift+n exec --no-startup-id kitty --name newsboat newsboat
+bindsym $mod+n exec --no-startup-id kitty --name nnn nnn; exec --no-startup-id "sleep 0.3 && xdotool key ctrl+plus && xdotool key ctrl+plus"
 bindsym $mod+Shift+c exec --no-startup-id chromium
 bindsym $mod+Shift+v exec --no-startup-id thunar
 bindsym $mod+Shift+x exec --no-startup-id betterlockscreen -l
@@ -240,3 +246,6 @@ bindsym $mod+q exec --no-startup-id ~/Programs/Scripts/bluetooth_sony
 exec_always --no-startup-id xmodmap -e "clear lock"
 exec_always --no-startup-id xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
 exec_always --no-startup-id xmodmap -e "keycode 66 = Escape NoSymbol Escape"
+exec_always --no-startup-id xmodmap -e "clear mod1"
+exec_always --no-startup-id xmodmap -e "add mod1 = Alt_L"
+exec_always --no-startup-id xmodmap -e "add mod4 = Alt_R"

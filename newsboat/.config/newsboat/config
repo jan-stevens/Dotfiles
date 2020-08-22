@@ -1,4 +1,5 @@
-auto-reload yes
+# auto-reload yes
+prepopulate-query-feeds yes
 reload-threads 4
 cache-file "~/.config/newsboat/cache.db"
 show-title-bar no
@@ -41,7 +42,7 @@ color article white default bold
 
 browser min
 macro , open-in-browser
-macro o set browser "mpv --fs --initial-audio-sync --really-quiet --ytdl" ; open-in-browser ; set browser min
+macro o set browser "mpv --fs --really-quiet --ytdl " ; open-in-browser ; set browser min
 
 highlight all "---.*---" yellow
 highlight all "█" yellow

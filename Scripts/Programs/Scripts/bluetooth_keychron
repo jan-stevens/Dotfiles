@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# run the program bluez
+echo -e 'power on\nconnect DC:2C:26:CD:37:75\nquit' | bluetoothctl
