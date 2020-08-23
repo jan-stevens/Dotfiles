@@ -43,6 +43,7 @@ color article white default bold
 browser min
 macro , open-in-browser
 macro o set browser "mpv --fs --really-quiet --ytdl " ; open-in-browser ; set browser min
+# cpulimit -l 90
 
 highlight all "---.*---" yellow
 highlight all "█" yellow

@@ -29,6 +29,7 @@ let mapleader=" "
 
 " User urview to choose and open an urls
     noremap <leader>u :w \| startinsert \| term urlview %<cr>
+
 " Shortcutting split navigation
     map <C-h> <C-w>h
     map <C-j> <C-w>j
@@ -81,7 +82,6 @@ let mapleader=" "
     set scrolloff=10
     filetype plugin indent on
     syntax on
-    " filetype off
     set inccommand=nosplit
 
 " Set search options
@@ -98,7 +98,6 @@ let mapleader=" "
     au BufReadPost,BufNewFile *.md,*.txt,*.tex setlocal tw=89 | setlocal fo=aw2tq
     autocmd BufNewFile,BufRead * if expand('%:t') !~ '\.' | setlocal tw=89 | endif
     autocmd BufNewFile,BufRead * if expand('%:t') !~ '\.' | setlocal fo=aw2tq | endif
-
     set showbreak=+++
 
 " Give more space for displaying messages.
@@ -121,7 +120,8 @@ let mapleader=" "
         au WinLeave * setlocal nocursorline
     augroup END
 
-" Autocompletion
+" Autocompletion in commandline
+    set wildmenu
     set wildmode=longest,list,full
 
 " Fix splitting
@@ -179,7 +179,7 @@ let mapleader=" "
         let g:limelight_paragraph_span = 1
 
     " Default value is 0.5
-        let g:limelight_default_coefficient = 0.7
+        let g:limelight_default_coefficient = 0.5
 
 " __Startify__
     autocmd StdinReadPre * let s:std_in=1
@@ -241,14 +241,6 @@ let mapleader=" "
 
 " __WriteGood__
     nnoremap  <silent> ;w :WritegoodToggle<CR>
-
-" __MarkdownLivePreview__
-    autocmd BufRead,BufNewFile *.md set filetype=markdown
-    " key mappings for markdown
-        augroup filetype_markdown
-          autocmd!
-          autocmd BufRead *.md nnoremap <buffer> <leader>c :MarkdownPreview<CR>
-        augroup END
 
 " __RunPythonCode__
     autocmd BufRead,BufNewFile *.py set filetype=python
@@ -416,7 +408,7 @@ let g:coc_global_extensions = [
     " Add `:OR` command for organize imports of the current buffer.
         command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-    " Add (Neo)Vim's native statusline support.
+    " Add (Neo)Vim's native status line support.
     " NOTE: Please see `:h coc-status` for integrations with external plugins that
     " provide custom statusline: lightline.vim, vim-airline.
         set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
@@ -443,8 +435,8 @@ let g:coc_global_extensions = [
     let g:lexical#spell_key = '<leader>s'
 
 "__Vim-snippets__
-    " <C-j> :  advance to next tabstop
-    " <C-k> : reverse to previous tabstop
+    " <C-j> :  advance to next tab stop
+    " <C-k> : reverse to previous tab stop
 
 "__ultisnips__
     let g:UltiSnipsExpandTrigger = '<s-tab>'
@@ -482,11 +474,9 @@ let g:coc_global_extensions = [
         Plug 'junegunn/limelight.vim'
         Plug 'junegunn/goyo.vim'
         " Document compiling(.tex and .md)
-        Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
         Plug 'lervag/vimtex'
         " Syntax highlight
         Plug 'sheerun/vim-polyglot'
-        Plug 'lilydjwg/colorizer'
         " Searching
         Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
         Plug 'junegunn/fzf.vim'
@@ -494,6 +484,7 @@ let g:coc_global_extensions = [
         " Misc
         Plug 'davidbeckingsale/writegood.vim'
         Plug 'zhimsel/vim-stay'
+        Plug 'vim-scripts/LargeFile'
     call plug#end()
 
 " __Homemade functions__
@@ -549,29 +540,8 @@ let g:coc_global_extensions = [
       endif
     endfunction
 
-    " Automatically source an eponymous <file>.vim or <file>.<ext>.vim if it exists, as a bulked-up
-    " modeline and to provide file-specific customizations.
-    function! s:AutoSource()
-        let l:testedScripts = ['syntax.vim']
-        if expand('<afile>:e') !=# 'vim'
-            " Don't source the edited Vimscript file itself.
-            call add(l:testedScripts, 'syntax.vim')
-        endif
-
-        for l:filespec in l:testedScripts
-            if filereadable(l:filespec)
-                execute 'source' fnameescape(l:filespec)
-            endif
-        endfor
-
-        call FindExecuteCommand()
-    endfunction
-    augroup AutoSource
-        autocmd! BufNewFile,BufRead * call <SID>AutoSource()
-    augroup END
-
     function! CreateTitle()
-        let l:amount=70
+        let l:amount=80
         normal VU"eyy
         "get lenght of string but it includes newline char
         "@e is at buffer e thats where the line above copies to
@@ -580,20 +550,20 @@ let g:coc_global_extensions = [
         let l:half=((l:remain / 2) - 1)
         normal "_dd
         normal o
-        normal 70i#
+        normal 89i#
         normal "ep
         normal I
         normal A
-        execute "normal! 0". 5 . "i "
+        execute "normal! 0". 10 . "i "
         execute "normal! 0". l:half . "i#"
-        execute "normal! $". 5 . "A "
+        execute "normal! $". 10 . "A "
         execute "normal! $". l:half . "A#"
         "modulo to get remainer for even/odd figuring
-        if(fmod(l:actlength,2) > 0)
+        if(fmod(l:actlength - 1,2) > 0)
             normal A#
         endif
         normal o
-        normal 70i#
+        normal 89i#
     endfunction
 
     function! CreateBorder()

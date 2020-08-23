@@ -116,6 +116,7 @@ alias search="fzf"
 alias weather="clear && curl v2.wttr.in/leuven"
 alias i3conf="nvim ~/.config/i3/config"
 alias v='nvim'
+alias z='zathura'
 alias vconf='nvim ~/.config/nvim/init.vim'
 alias mutt='neomutt'
 alias m='neomutt'
