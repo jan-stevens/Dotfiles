@@ -1,7 +1,0 @@
-#!/bin/bash
-
-# copy all my dotfiles to git/dotfiles
-git pull ;
-git add --all ;
-git commit -m "Updating dotfiles" ;
-git push
