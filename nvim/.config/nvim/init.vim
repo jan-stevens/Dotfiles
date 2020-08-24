@@ -14,6 +14,8 @@ let mapleader=" "
 
 " Remove trailing whitespace on save
     autocmd BufWritePre * %s/\s\+$//e
+" Quick macro excecution
+    nnoremap , @q
 " Fix indenting visual block
     vmap < <gv
     vmap > >gv
@@ -252,7 +254,7 @@ let mapleader=" "
 
 " __Floaterm__
     " __Bottom Terminal__
-        nnoremap   <silent>  ;t :FloatermNew --wintype=normal --position=bottom --height=0.3 bash<CR>
+        nnoremap   <silent>  ;t :FloatermNew --wintype=normal --position=bottom --height=0.3<CR>
         tnoremap  <silent>  ;h <C-\><C-n>:FloatermToggle<CR>
         nnoremap  <silent>  ;h :FloatermToggle<CR>
         tnoremap  <silent>  <Esc> <C-\><C-n><CR>
@@ -424,6 +426,7 @@ let g:coc_global_extensions = [
 "__Vim-Lexical__
     augroup lexical
       autocmd!
+      autocmd BufNewFile,BufRead * if expand('%:t') !~ '\.' | call lexical#init()| endif
       autocmd FileType markdown,mkd call lexical#init()
       autocmd FileType latex,tex call lexical#init()
       autocmd FileType textile call lexical#init()
