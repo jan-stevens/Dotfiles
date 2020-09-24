@@ -124,6 +124,8 @@ alias keychron='~/Programs/Scripts/bluetooth_keychron'
 alias sony='~/Programs/Scripts/bluetooth_sony'
 alias proxy='~/Programs/Scripts/proxy.py'
 alias d='devour'
+alias im='kitty +kitten icat'
+alias term='kitty --detach -d $PWD'
 
 # nnn configuration
 export TERMINAL="kitty"
