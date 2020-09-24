@@ -213,7 +213,7 @@ exec_always --no-startup-id autotiling
 exec_always --no-startup-id nitrogen --set-zoom-fill --random ~/Pictures/Wallpapers/
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id dunst
-exec --no-startup-id unclutter --timeout 2
+exec --no-startup-id unclutter --timeout 3
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id xfce4-power-manager
 exec_always --no-startup-id fix_xcursor
@@ -231,13 +231,13 @@ gaps outer 15
 bindsym Print exec --no-startup-id flameshot gui
 bindsym $mod+p exec --no-startup-id ~/Programs/Scripts/proxy.py
 bindsym $mod+t exec --no-startup-id kitty htop & kitty gtop
-bindsym $mod+Shift+m exec --no-startup-id pomotroid
+bindsym $mod+Shift+m exec --no-startup-id kitty neomutt
 bindsym $mod+Shift+n exec --no-startup-id kitty --name newsboat newsboat
 bindsym $mod+n exec --no-startup-id kitty --name nnn nnn; exec --no-startup-id "sleep 0.3 && xdotool key ctrl+plus && xdotool key ctrl+plus"
 bindsym $mod+Shift+c exec --no-startup-id chromium
 bindsym $mod+Shift+v exec --no-startup-id thunar
 bindsym $mod+Shift+x exec --no-startup-id betterlockscreen -l
-bindsym $mod+Shift+t exec --no-startup-id tomate-gtk
+bindsym $mod+Shift+t exec --no-startup-id pomotroid
 
 # System bindings with scripts
 bindsym $mod+Shift+q exec --no-startup-id ~/Programs/Scripts/bluetooth_sony2
