@@ -1,7 +1,7 @@
 <div align="center">
     <h1>Dotfiles</h1>
     <blockquote>
-        <p>Biogen98's Manjaro dotfiles.</p>
+        <p>Biogen98's dotfiles.</p>
     </blockquote>
 </div>
 
@@ -12,14 +12,14 @@
 > - Making visual improvements and customization to your desktop and/or phone that can simplify your desktop environment but (generally) are completely pointless.
 
 ## Some details
-+ **OS**: Manjaro 18.1.5
-+ **WM**: i3wm
++ **OS**: Pop_OS 21.04
++ **WM**: /
 + **Terminal**: Kitty
-+ **File Manager**: nemo / nnn
-+ **Launcher**: Rofi
++ **File Manager**: nautilus
++ **Launcher**: /
 + **Editor**: nvim / [micro](https://micro-editor.github.io/) / vscode
-+ **Browser**: Brave
-+ **GTK theme**: Material-Black-Cherry
++ **Browser**: chromium
++ **GTK theme**: /
 ## Dependencies
 ### Programs
 + i3-gaps-rounded
@@ -31,9 +31,7 @@
 
 ### Fonts
 + **[Jetbrains Mono](https://www.jetbrains.com/lp/mono/#how-to-install)**
-+ **[Font Awesome](https://fontawesome.com/)**
 + **Nerd Fonts**
-+ **Iosevka**
 
 ## Some recommended applications
 + **Terminals**: Kitty
@@ -42,7 +40,6 @@
 + **Browsers**: Brave / Chromium
 + **Editors**: Sublime Text / Atom / Nvim
 + **Music players**: Spotify
-+ **email client**: Mailspring
 + **Compositor**: picom-tryone-git (Enables kawase blur)
 + **Window manager**: i3-gaps-rounded
 + **Lockscreen**: [mantablockscreen](https://github.com/reorr/mantablockscreen)
