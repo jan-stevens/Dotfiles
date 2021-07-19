@@ -12,28 +12,19 @@
 let mapleader=" "
 " __Standard nvim settings__
 
-" Remove trailing whitespace on save
+" Remove trailing white space on save
     autocmd BufWritePre * %s/\s\+$//e
 
-" Quick macro excecution
+" Quick macro execution
     nnoremap , @q
 " Fix indenting visual block
     vmap < <gv
     vmap > >gv
 
-" Presentation mode
-    " dependencies: toilet and figlet
-    " Use mod+shift+f to fullscreen -> problems with images
-    nmap <F5> :call ToggleHiddenAll()<CR>
-    nmap <F2> :call DisplayPresentationBoundaries()<CR>
-    nmap <F3> :call FindExecuteCommand()<CR>
-    " noremap <silent> <C-o> :silent bp<CR> :redraw!<CR>
-    " noremap <silent> <C-p> :silent bn<CR> :redraw!<CR>
-
 " User urview to choose and open an urls
     noremap <leader>u :w \| startinsert \| term urlview %<cr>
 
-" Shortcutting split navigation
+" Short cutting split navigation
     map <C-h> <C-w>h
     map <C-j> <C-w>j
     map <C-k> <C-w>k
@@ -46,7 +37,7 @@ let mapleader=" "
 " Alias replace all to S
     nnoremap S :%s//gI<Left><Left><Left>
 
-" Shortcut split opening
+" Short cut split opening
     nnoremap <leader>h :split<Space>
     nnoremap <leader>v :vsplit<Space>
 
@@ -65,10 +56,11 @@ let mapleader=" "
     nnoremap <Left> :vertical resize +2<CR>
     nnoremap <Right> :vertical resize -2<CR>
 
-" Print section title or devider
+" Print section title or divider
     nnoremap <leader>t :call CreateTitle()<cr>
     nnoremap <leader>T :call BigCreateTitle()<cr>
-    nnoremap <leader>b :call CreateBorder()<cr>
+    nnoremap <leader>b :call CreateSmallBorder()<cr>
+    nnoremap <leader>B :call CreateBigBorder()<cr>
 
 " Basic settings
     set encoding=UTF-8
@@ -86,6 +78,7 @@ let mapleader=" "
     set scrolloff=5
     filetype indent plugin on
     syntax on
+    set nocompatible
     set inccommand=nosplit
 
 " Set search options
@@ -98,9 +91,9 @@ let mapleader=" "
 
 " Set ruler
     set ruler
-    set colorcolumn=90
-    au BufReadPost,BufNewFile *.md,*.txt,*.tex setlocal tw=89 | setlocal fo=aw2tq
-    autocmd BufNewFile,BufRead * if expand('%:t') !~ '\.' | setlocal tw=89 | endif
+    set colorcolumn=100
+    au BufReadPost,BufNewFile *.md,*.txt,*.tex setlocal tw=99 | setlocal fo=aw2tq
+    autocmd BufNewFile,BufRead * if expand('%:t') !~ '\.' | setlocal tw=99 | endif
     autocmd BufNewFile,BufRead * if expand('%:t') !~ '\.' | setlocal fo=aw2tq | endif
     set showbreak=+++
 
@@ -156,7 +149,7 @@ let mapleader=" "
 
 " __Goyo__
     map <leader>g :Goyo<CR>
-    let g:goyo_width = 91
+    let g:goyo_width = 101
 " __Lightline__
     let g:lightline={'colorscheme': 'wombat',}
     set laststatus=2
@@ -239,15 +232,15 @@ let mapleader=" "
         let g:tex_conceal='abdmg'
     " key mappings for latex
         let g:vimtex_mappings_enabled = 0
-        nnoremap <silent> ;lt : VimtexTocToggle<CR>
-        nnoremap <silent> ;lv : VimtexView<CR>
-        nnoremap <silent> ;lw : VimtexCountWords<CR>
-        nnoremap <silent> ;le : VimtexErrors<CR>
-        nnoremap <silent> ;lc : VimtexClean<CR>
+        nnoremap <silent> <leader>lt : VimtexTocToggle<CR>
+        nnoremap <silent> <leader>lv : VimtexView<CR>
+        nnoremap <silent> <leader>lw : VimtexCountWords<CR>
+        nnoremap <silent> <leader>le : VimtexErrors<CR>
+        nnoremap <silent> <leader>lc : VimtexClean<CR>
 
         augroup filetype_latex
             autocmd!
-            autocmd BufRead *.tex nnoremap <buffer> <leader>c :VimtexCompile<CR> :VimtexClean<CR>
+            autocmd BufRead *.tex nnoremap <buffer> <leader>c :VimtexCompile<CR>
         augroup END
 
 " __WriteGood__
@@ -448,6 +441,27 @@ let g:coc_global_extensions = [
     let g:UltiSnipsJumpForwardTrigger = '<s-tab>'
     " let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
+"__Bullets__
+    let g:bullets_enabled_file_types = [
+        \ 'markdown',
+        \ 'text',
+        \]
+"__Tabularize__
+    " map <leader>a= <Nop>
+    " map <leader>a: <Nop>
+    " if exists(":Tabularize")
+    "   nmap <Leader>a= :Tabularize /=<CR>
+    "   vmap <Leader>a= :Tabularize /=<CR>
+    "   nmap <Leader>a: :Tabularize /:\zs<CR>
+    "   vmap <Leader>a: :Tabularize /:\zs<CR>
+    " endif
+    nnoremap <leader>a= : Tabularize /=<CR>
+    vnoremap <leader>a= : Tabularize /=<CR>
+    nnoremap <leader>a<Bar> : Tabularize /<Bar><CR>
+    vnoremap <leader>a<Bar> : Tabularize /<Bar><CR>
+    nnoremap <Leader>a: :Tabularize /:<CR>
+    vnoremap <Leader>a: :Tabularize /:<CR>
+
 " __Plug__
     call plug#begin('~/.config/nvim/plugged')
         " Startup screen
@@ -487,6 +501,11 @@ let g:coc_global_extensions = [
         Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
         Plug 'junegunn/fzf.vim'
         Plug 'airblade/vim-rooter'
+        " VimWiki
+        Plug 'dkarter/bullets.vim'
+        Plug 'vimwiki/vimwiki'
+        Plug 'godlygeek/tabular'
+        " Plug 'plasticboy/vim-markdown'
         " Misc
         Plug 'davidbeckingsale/writegood.vim'
         Plug 'zhimsel/vim-stay'
@@ -556,7 +575,7 @@ let g:coc_global_extensions = [
         let l:half=((l:remain / 2) - 1)
         normal "_dd
         normal o
-        normal 89i#
+        normal 99i#
         normal "ep
         normal I
         normal A
@@ -569,7 +588,7 @@ let g:coc_global_extensions = [
             normal A#
         endif
         normal o
-        normal 89i#
+        normal 99i#
     endfunction
 
     function! CreateTitle()
@@ -595,12 +614,14 @@ let g:coc_global_extensions = [
         normal I#
     endfunction
 
+    function! CreateBigBorder()
+        normal 99i#
+        normal o
+        normal 99i#
+    endfunction
 
-    function! CreateBorder()
-        normal o
-        normal 89i#
-        normal o
-        normal 89i#
+    function! CreateSmallBorder()
+        normal 99i-
     endfunction
 
     function! MyFoldText()

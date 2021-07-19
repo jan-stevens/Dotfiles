@@ -116,16 +116,24 @@ alias search="fzf"
 alias weather="clear && curl v2.wttr.in/leuven"
 alias i3conf="nvim ~/.config/i3/config"
 alias v='nvim'
-alias z='zathura'
+alias z='devour zathura'
 alias vconf='nvim ~/.config/nvim/init.vim'
 alias mutt='neomutt'
 alias m='neomutt'
 alias keychron='~/Programs/Scripts/bluetooth_keychron'
 alias sony='~/Programs/Scripts/bluetooth_sony'
 alias proxy='~/Programs/Scripts/proxy.py'
-alias d='devour'
 alias im='kitty +kitten icat'
 alias term='kitty --detach -d $PWD'
+alias mendeley='devour ~/Programs/mendeley-reference-manager.AppImage'
+alias feh='devour feh'
+alias typeracer='~/Programs/typeracer'
+alias ovito='devour ~/Programs/ovito-basic-3.5.3-x86_64/bin/ovito'
+alias vmd='devour vmd'
+alias athens='devour ~/Programs/Athens/Athens-1.0.0-beta.89.AppImage'
+alias lmp='~/Programs/lammps-29Oct20/build/lmp'
+alias wiki='nvim ~/Documents/wiki/index.md'
+alias blender='~/Programs/blender-2.93.1-linux-x64/blender'
 
 # nnn configuration
 export TERMINAL="kitty"
@@ -146,3 +154,6 @@ autoload -Uz compinit
 compinit
 # Completion for kitty
 kitty + complete setup zsh | source /dev/stdin
+
+# Source gromacs
+source /usr/local/gromacs/bin/GMXRC
