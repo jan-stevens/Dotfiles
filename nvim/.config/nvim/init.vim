@@ -184,8 +184,8 @@ let mapleader=" "
     nmap s <Plug>(easymotion-overwin-f2)
 
 " __Limelight__
-    autocmd! User GoyoEnter Limelight
-    autocmd! User GoyoLeave Limelight!
+    " autocmd! User GoyoEnter Limelight
+    " autocmd! User GoyoLeave Limelight!
 
     " Number of preceding/following paragraphs to include (default: 0)
         let g:limelight_paragraph_span = 1
@@ -472,10 +472,11 @@ let g:coc_global_extensions = [
 "__VimWiki__
     let g:vimwiki_list = [{
       \ 'path': '$HOME/Documents/wiki/',
-      \ 'path_html': '~/Documents/wiki/wiki_html',
+      \ 'path_html': '$HOME/Documents/wiki/wiki_html',
       \ 'template_path': '$HOME/Documents/wiki/Templates/',
       \ 'template_default': 'default',
-      \ 'template_ext': '.html'}]
+      \ 'template_ext': '.html',
+      \ 'auto_export': 1}]
 
 " __Plug__
     call plug#begin('~/.config/nvim/plugged')

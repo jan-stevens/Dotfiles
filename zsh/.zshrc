@@ -116,6 +116,7 @@ alias search="fzf"
 alias weather="clear && curl v2.wttr.in/leuven"
 alias i3conf="nvim ~/.config/i3/config"
 alias v='nvim'
+alias vim='nvim'
 alias z='devour zathura'
 alias vconf='nvim ~/.config/nvim/init.vim'
 alias mutt='neomutt'
@@ -132,7 +133,7 @@ alias ovito='devour ~/Programs/ovito-basic-3.5.3-x86_64/bin/ovito'
 alias vmd='devour vmd'
 alias athens='devour ~/Programs/Athens/Athens-1.0.0-beta.89.AppImage'
 alias lmp='~/Programs/lammps-29Oct20/build/lmp'
-alias wiki='nvim ~/Documents/wiki/index.md'
+alias wiki='nvim ~/Documents/wiki/index.wiki'
 alias blender='~/Programs/blender-2.93.1-linux-x64/blender'
 
 # nnn configuration
@@ -156,4 +157,4 @@ compinit
 kitty + complete setup zsh | source /dev/stdin
 
 # Source gromacs
-source /usr/local/gromacs/bin/GMXRC
+#source /usr/local/gromacs/bin/GMXRC
