@@ -4,10 +4,10 @@ import clipboard
 import os
 
 # Define browser command
-browser = "chromium --silent "
+browser = "google-chrome-stable --silent "
 
 # Proxy url
-proxy = ".kuleuven.ezproxy.kuleuven.be"
+proxy = ".kuleuven.e-bronnen.be"
 
 # Get the url from user
 # url = sys.argv[1]

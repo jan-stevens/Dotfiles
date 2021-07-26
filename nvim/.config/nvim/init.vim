@@ -18,9 +18,6 @@ let mapleader=" "
 " Quick macro execution
     nnoremap , @q
 
-" Center text macro
-    nnoremap <leader>c : '<,'>center %<cr>
-
 " Set current directory to files directory
     autocmd BufEnter * lcd %:p:h
 
@@ -88,6 +85,10 @@ let mapleader=" "
     set nocompatible
     set inccommand=nosplit
 
+" Paragraph width
+    set textwidth=99
+    nnoremap <leader> G:call Format()<cr> \| execute "normal g;"<cr>
+
 " Set search options
     set ignorecase
     set hlsearch
@@ -139,13 +140,6 @@ let mapleader=" "
     " makes Ascii border
     nmap <leader>af :.!toilet -w 200 -f term -F border<CR>
 
-
-"Implement folding
-    nnoremap <s-tab> za
-    nnoremap <leader>z zfip
-    set foldmethod=manual
-    set foldtext=MyFoldText()
-
 " ___Plugin settings___
 
 " __tcomment__
@@ -157,6 +151,7 @@ let mapleader=" "
 " __Goyo__
     map <leader>g :Goyo<CR>
     let g:goyo_width = 101
+
 " __Lightline__
     let g:lightline={'colorscheme': 'wombat',}
     set laststatus=2
@@ -175,12 +170,9 @@ let mapleader=" "
     let g:NERDTreeMinimalUI = 1
     let g:NERDTreeWinPos = "right"
     let g:NERDTreeChDirMode=2
-    " Install nerd font patched verion of jetbrains mono with aur
-
 
 " __Easymotion__
     let g:EasyMotion_smartcase = 1
-    " nnoremap <silent> <leader> k <Plug>(easymotion-overwin-f2)
     nmap s <Plug>(easymotion-overwin-f2)
 
 " __Limelight__
@@ -321,9 +313,45 @@ let mapleader=" "
           \ 'spinner': ['fg', 'Label'],
           \ 'header':  ['fg', 'Comment'] }
 
+"__Vim-Lexical__
+
+    autocmd BufNewFile,BufRead * call lexical#init()
+    let g:lexical#spell = 0         " 0=disabled, 1=enabled
+    let g:lexical#spelllang = ['en_gb','nl',]
+    let g:lexical#spell_key = '<leader>s'
+
+"__Bullets__
+    let g:bullets_enabled_file_types = [
+        \ 'markdown',
+        \ 'text',
+        \]
+
+"__Tabularize__
+    nnoremap <leader>a= : Tabularize /=<CR>
+    vnoremap <leader>a= : Tabularize /=<CR>
+    nnoremap <leader>a<Bar> : Tabularize /<Bar><CR>
+    vnoremap <leader>a<Bar> : Tabularize /<Bar><CR>
+    nnoremap <Leader>a: :Tabularize /:<CR>
+    vnoremap <Leader>a: :Tabularize /:<CR>
+
+"__VimWiki__
+    " Comment out line 543 to remove Tab conflict with CoC in file
+    "    ~/.config/nvim/plugged/vimwiki/ftplugin/vimwiki.vim
+    let g:vimwiki_list = [{
+      \ 'path': '$HOME/Documents/wiki/',
+      \ 'path_html': '$HOME/Documents/wiki/wiki_html',
+      \ 'template_path': '$HOME/Documents/wiki/Templates/',
+      \ 'template_default': 'default',
+      \ 'template_ext': '.html',
+      \ 'auto_export': 1}]
+
+"__maximizer__
+
+nnoremap <leader>f :MaximizerToggle<CR>
+
 " __COC__
 let g:coc_global_extensions = [
-    \ 'coc-jedi',
+    \ 'coc-python',
     \ 'coc-snippets',
     \ 'coc-pyright',
     \ 'coc-vimtex'
@@ -349,6 +377,7 @@ let g:coc_global_extensions = [
     " Use tab for trigger completion with characters ahead and navigate.
     " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
     " other plugin before putting this into your config.
+    "
         inoremap <silent><expr> <TAB>
               \ pumvisible() ? "\<C-n>" :
               \ <SID>check_back_space() ? "\<TAB>" :
@@ -400,8 +429,8 @@ let g:coc_global_extensions = [
         nmap <leader>rn <Plug>(coc-rename)
 
     " Formatting selected code.
-        xmap <leader>f  <Plug>(coc-format)
-        nmap <leader>f  <Plug>(coc-format)
+        " xmap <leader>f  <Plug>(coc-format)
+        " nmap <leader>f  <Plug>(coc-format)
 
         augroup mygroup
           autocmd!
@@ -433,153 +462,23 @@ let g:coc_global_extensions = [
     " Do default action for previous item.
         nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 
-"__Vim-Lexical__
+    " Use <C-j> for trigger snippet expand.
+    imap <C-j> <Plug>(coc-snippets-expand)
 
-    autocmd BufNewFile,BufRead * call lexical#init()
-    let g:lexical#spell = 0         " 0=disabled, 1=enabled
-    let g:lexical#spelllang = ['en_gb','nl',]
-    let g:lexical#spell_key = '<leader>s'
+    " Use <C-j> for select text for visual placeholder of snippet.
+    vmap <C-j> <Plug>(coc-snippets-select)
 
-"__Vim-snippets__
-    " <C-j> :  advance to next tab stop
-    " <C-k> : reverse to previous tab stop
+    " Use <C-j> for jump to next placeholder, it's default of coc.nvim
+    let g:coc_snippet_next = '<c-j>'
 
-"__ultisnips__
-    let g:UltiSnipsExpandTrigger = '<s-tab>'
-    let g:UltiSnipsJumpForwardTrigger = '<s-tab>'
-    " let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+    " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+    let g:coc_snippet_prev = '<c-k>'
 
-"__Bullets__
-    let g:bullets_enabled_file_types = [
-        \ 'markdown',
-        \ 'text',
-        \]
-"__Tabularize__
-    " map <leader>a= <Nop>
-    " map <leader>a: <Nop>
-    " if exists(":Tabularize")
-    "   nmap <Leader>a= :Tabularize /=<CR>
-    "   vmap <Leader>a= :Tabularize /=<CR>
-    "   nmap <Leader>a: :Tabularize /:\zs<CR>
-    "   vmap <Leader>a: :Tabularize /:\zs<CR>
-    " endif
-    nnoremap <leader>a= : Tabularize /=<CR>
-    vnoremap <leader>a= : Tabularize /=<CR>
-    nnoremap <leader>a<Bar> : Tabularize /<Bar><CR>
-    vnoremap <leader>a<Bar> : Tabularize /<Bar><CR>
-    nnoremap <Leader>a: :Tabularize /:<CR>
-    vnoremap <Leader>a: :Tabularize /:<CR>
-"__VimWiki__
-    let g:vimwiki_list = [{
-      \ 'path': '$HOME/Documents/wiki/',
-      \ 'path_html': '$HOME/Documents/wiki/wiki_html',
-      \ 'template_path': '$HOME/Documents/wiki/Templates/',
-      \ 'template_default': 'default',
-      \ 'template_ext': '.html',
-      \ 'auto_export': 1}]
+    " Use <C-j> for both expand and jump (make expand higher priority.)
+    imap <C-j> <Plug>(coc-snippets-expand-jump)
 
-" __Plug__
-    call plug#begin('~/.config/nvim/plugged')
-        " Startup screen
-        Plug 'mhinz/vim-startify'
-        " File manager
-        Plug 'preservim/nerdtree'
-        " Motion
-        Plug 'easymotion/vim-easymotion'
-        Plug 'psliwka/vim-smoothie'
-        " Terminal
-        Plug 'voldikss/vim-floaterm'
-        " Easthetic changes
-        Plug 'jeffkreeftmeijer/vim-numbertoggle'
-        Plug 'ryanoasis/vim-devicons'
-        " Automated typing
-        Plug 'sirver/ultisnips'
-        Plug 'honza/vim-snippets'
-        Plug 'tomtom/tcomment_vim'
-        Plug 'jiangmiao/auto-pairs'
-        Plug 'Vimjas/vim-python-pep8-indent'
-        Plug 'reedes/vim-lexical'
-        Plug 'neoclide/coc.nvim', {'branch': 'release'}
-        Plug 'tpope/vim-surround'
-        """
-        " Using the COC plugins: vimtex,texlab,python,snippets
-        """
-        " Status bar
-        Plug 'itchyny/lightline.vim'
-        " Distraction free mode
-        Plug 'junegunn/limelight.vim'
-        Plug 'junegunn/goyo.vim'
-        " Document compiling(.tex and .md)
-        Plug 'lervag/vimtex'
-        " Syntax highlight
-        " Plug 'sheerun/vim-polyglot'
-        " Searching
-        Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-        Plug 'junegunn/fzf.vim'
-        Plug 'airblade/vim-rooter'
-        " VimWiki
-        Plug 'dkarter/bullets.vim'
-        Plug 'vimwiki/vimwiki'
-        Plug 'godlygeek/tabular'
-        Plug 'plasticboy/vim-markdown'
-        " Misc
-        Plug 'davidbeckingsale/writegood.vim'
-        Plug 'zhimsel/vim-stay'
-        Plug 'vim-scripts/LargeFile'
-    call plug#end()
 
 " __Homemade functions__
-    "Presentation mode
-    let s:hidden_all = 0
-    function! ToggleHiddenAll()
-        if s:hidden_all  == 0
-            let s:hidden_all = 1
-            set noshowmode
-            set noruler
-            set cursorline!
-            set colorcolumn=0
-            set laststatus=0
-            " set noshowcmd
-            set relativenumber!
-            set number!
-            set hidden!
-            set signcolumn=no
-        else
-            let s:hidden_all = 0
-            set showmode
-            set ruler
-            set colorcolumn=80
-            set laststatus=2
-            set showcmd
-            set number relativenumber
-            set hidden
-            set signcolumn=yes
-        endif
-    endfunction
-
-    let g:presentationBoundsDisplayed = 0
-    function! DisplayPresentationBoundaries()
-      if g:presentationBoundsDisplayed
-        match
-        set colorcolumn=0
-        let g:presentationBoundsDisplayed = 0
-      else
-        highlight lastoflines ctermbg=darkred guibg=darkred
-        match lastoflines /\%23l/
-        set colorcolumn=80
-        let g:presentationBoundsDisplayed = 1
-      endif
-    endfunction
-
-    function! FindExecuteCommand()
-      let line = search('\S*!'.'!:.*')
-      if line > 0
-        let command = substitute(getline(line), "\S*!"."!:*", "", "")
-        execute "silent !". command
-        execute "normal gg0"
-        redraw
-      endif
-    endfunction
 
     function! BigCreateTitle()
         let l:amount=80
@@ -630,6 +529,13 @@ let g:coc_global_extensions = [
         normal I#
     endfunction
 
+    function! Format()
+        normal gg
+        normal gqG
+        normal <C-\><C-O>
+        normal <C-\><C-O>
+    endfunction
+
     function! CreateBigBorder()
         normal 99i#
         normal o
@@ -641,10 +547,52 @@ let g:coc_global_extensions = [
         normal o
     endfunction
 
-    function! MyFoldText()
-        let line = getline(v:foldstart)
-        let folded_line_num = v:foldend - v:foldstart
-        let line_text = substitute(line, '^"{\+', '', 'g')
-        let fillcharcount = &textwidth - len(line_text) - len(folded_line_num)
-        return '+'. repeat('-', 4) . line_text  . repeat('·', fillcharcount) . ' ( ' . folded_line_num . 'L ) '
-    endfunction
+" __Plug__
+    call plug#begin('~/.config/nvim/plugged')
+        " Startup screen
+        Plug 'mhinz/vim-startify'
+        " File manager
+        Plug 'preservim/nerdtree'
+        " Motion
+        Plug 'easymotion/vim-easymotion'
+        Plug 'psliwka/vim-smoothie'
+        " Terminal
+        Plug 'voldikss/vim-floaterm'
+        " Easthetic changes
+        Plug 'jeffkreeftmeijer/vim-numbertoggle'
+        Plug 'ryanoasis/vim-devicons'
+        " Automated typing
+        Plug 'honza/vim-snippets'
+        Plug 'tomtom/tcomment_vim'
+        Plug 'jiangmiao/auto-pairs'
+        Plug 'Vimjas/vim-python-pep8-indent'
+        Plug 'reedes/vim-lexical'
+        Plug 'neoclide/coc.nvim', {'branch': 'release'}
+        Plug 'tpope/vim-surround'
+        """
+        " Using the COC plugins: vimtex,texlab,python,snippets
+        """
+        " Status bar
+        Plug 'itchyny/lightline.vim'
+        " Distraction free mode
+        Plug 'junegunn/limelight.vim'
+        Plug 'junegunn/goyo.vim'
+        " Document compiling(.tex and .md)
+        Plug 'lervag/vimtex'
+        " Syntax highlight
+        " Plug 'sheerun/vim-polyglot'
+        " Searching
+        Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+        Plug 'junegunn/fzf.vim'
+        Plug 'airblade/vim-rooter'
+        " Misc
+        Plug 'davidbeckingsale/writegood.vim'
+        Plug 'zhimsel/vim-stay'
+        Plug 'vim-scripts/LargeFile'
+        Plug 'szw/vim-maximizer'
+        " VimWiki
+        Plug 'dkarter/bullets.vim'
+        Plug 'godlygeek/tabular'
+        Plug 'plasticboy/vim-markdown'
+        Plug 'vimwiki/vimwiki'
+    call plug#end()

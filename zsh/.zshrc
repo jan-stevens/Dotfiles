@@ -134,7 +134,7 @@ alias vmd='devour vmd'
 alias athens='devour ~/Programs/Athens/Athens-1.0.0-beta.89.AppImage'
 alias lmp='~/Programs/lammps-29Oct20/build/lmp'
 alias wiki='nvim ~/Documents/wiki/index.wiki'
-alias blender='~/Programs/blender-2.93.1-linux-x64/blender'
+alias blender='devour ~/Programs/blender-2.93.1-linux-x64/blender'
 
 # nnn configuration
 export TERMINAL="kitty"
@@ -157,4 +157,4 @@ compinit
 kitty + complete setup zsh | source /dev/stdin
 
 # Source gromacs
-#source /usr/local/gromacs/bin/GMXRC
+source /usr/local/gromacs/bin/GMXRC
