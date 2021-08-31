@@ -131,10 +131,12 @@ alias feh='devour feh'
 alias typeracer='~/Programs/typeracer'
 alias ovito='devour ~/Programs/ovito-basic-3.5.3-x86_64/bin/ovito'
 alias vmd='devour vmd'
+alias mpv='devour mpv'
 alias athens='devour ~/Programs/Athens/Athens-1.0.0-beta.89.AppImage'
 alias lmp='~/Programs/lammps-29Oct20/build/lmp'
 alias wiki='nvim ~/Documents/wiki/index.wiki'
 alias blender='devour ~/Programs/blender-2.93.1-linux-x64/blender'
+alias chimerax='devour chimerax'
 
 # nnn configuration
 export TERMINAL="kitty"
