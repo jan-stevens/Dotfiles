@@ -1,7 +1,7 @@
 <div align="center">
     <h1>Dotfiles</h1>
     <blockquote>
-        <p>Biogen98's dotfiles.</p>
+        <p>my personal dotfiles.</p>
     </blockquote>
 </div>
 
