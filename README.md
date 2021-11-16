@@ -7,10 +7,6 @@
 
 ![t](https://flat.badgen.net/badge/platform/Linux)
 
-> ri • cing /ry-sing/
->
-> - Making visual improvements and customization to your desktop and/or phone that can simplify your desktop environment but (generally) are completely pointless.
-
 ## Some details
 + **OS**: Pop_OS 21.04
 + **WM**: /
