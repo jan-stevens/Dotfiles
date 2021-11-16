@@ -33,18 +33,6 @@
 + **[Jetbrains Mono](https://www.jetbrains.com/lp/mono/#how-to-install)**
 + **Nerd Fonts**
 
-## Some recommended applications
-+ **Terminals**: Kitty
-+ **File managers**: Nnn / Nemo
-+ **Launchers**: Rofi / dmenu
-+ **Browsers**: Brave / Chromium
-+ **Editors**: Sublime Text / Atom / Nvim
-+ **Music players**: Spotify
-+ **Compositor**: picom-tryone-git (Enables kawase blur)
-+ **Window manager**: i3-gaps-rounded
-+ **Lockscreen**: [mantablockscreen](https://github.com/reorr/mantablockscreen)
-+ **Display manager**: [lightdm-mini-greeter](https://github.com/prikhi/lightdm-mini-greeter)
-
 ## Install
 Clone (using `git`) this repo manually into the home directory:
 
